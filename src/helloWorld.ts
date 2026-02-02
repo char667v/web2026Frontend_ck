@@ -70,3 +70,19 @@ console.log("catname", catname);
 
 
 //console.log(cat);
+
+
+// [] means array. number[] means number-array.
+let numbers: number[] = [1,5,3,8,3];
+numbers.push(5);  //push adds a new element to the existing array.
+console.log(numbers);
+
+let people = []; // creates an empty array
+const person1 = {firstname: 'Christian', lastname: 'Kirschberg', email: 'kirs@cphbusiness.dk'};
+people.push(person1);
+people.push({firstname: 'Mathias', lastname: 'Nielsen', email: 'mtnl@cphbusiness.dk'});
+
+console.log(people)
+const person2 = people[0]; // gets the first person in the peoples array
+console.log(person2);
+

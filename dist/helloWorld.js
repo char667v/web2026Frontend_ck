@@ -28,11 +28,18 @@ var Cat = /** @class */ (function () {
         this.color = color;
         this.birthDate = birthdate;
     }
+    Cat.prototype.getCatname = function () {
+        return this.catname;
+    };
+    Cat.prototype.setCatname = function (newName) {
+        this.catname = newName;
+    };
     return Cat;
 }());
 // Here I am using the constructor of the Cat class to create cat objects.
 var myCat1 = new Cat('Whiskers', 'Female', 'Maine Coon', 'White');
 var myCat2 = new Cat('Bernie', 'Male', 'British shorthair', 'Blue', new Date(2026, 0, 1));
+console.log(myCat2.getCatname()); // retrieve name of cat object
 console.log(myCat1);
 console.log(myCat2);
 // javascript destructuring
@@ -41,4 +48,15 @@ console.log("catname", catname);
 // let cat = {name: 'Charlie', gender: 'Male', species: 'Maine Coon', color: ''};
 // cat.color = 'Brown';
 //console.log(cat);
+// [] means array. number[] means number-array.
+var numbers = [1, 5, 3, 8, 3];
+numbers.push(5); //push adds a new element to the existing array.
+console.log(numbers);
+var people = []; // creates an empty array
+var person1 = { firstname: 'Christian', lastname: 'Kirschberg', email: 'kirs@cphbusiness.dk' };
+people.push(person1);
+people.push({ firstname: 'Mathias', lastname: 'Nielsen', email: 'mtnl@cphbusiness.dk' });
+console.log(people);
+var person2 = people[0]; // gets the first person in the peoples array
+console.log(person2);
 //# sourceMappingURL=helloWorld.js.map
