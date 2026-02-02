@@ -44,10 +44,19 @@ class Cat {
         this.color = color;
         this.birthDate = birthdate;
     }
+    getCatname() { // getting name
+        return this.catname;
+    }
+    setCatname(newName: string) { // setting or changing the name
+        this.catname = newName;
+    }
+
 }
 // Here I am using the constructor of the Cat class to create cat objects.
 let myCat1 = new Cat('Whiskers', 'Female', 'Maine Coon', 'White');
 let myCat2 = new Cat('Bernie', 'Male', 'British shorthair', 'Blue', new Date(2026, 0, 1));
+console.log(myCat2.getCatname()) // retrieve name of cat object
+
 console.log(myCat1);
 console.log(myCat2);
 
