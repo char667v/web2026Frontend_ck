@@ -16,4 +16,17 @@ btn.addEventListener("mouseover", function () {
 btn.addEventListener("mouseout", function () {
     div.classList.add("hidden");
 });
+var input = document.getElementById("inputTodo");
+var btnAddTodo = document.getElementById("btnTodo");
+btnAddTodo.addEventListener("click", function () {
+    var todoValue = input.value; // retrieve user input
+    // create a new li - element
+    var li = document.createElement("li");
+    li.textContent = todoValue; // set its content to ...
+    li.addEventListener("click", function () {
+        this.remove(); // remove the li-element the user clicked
+    });
+    document.getElementById("todos").prepend(li); //add li to ul
+    input.value = '';
+});
 //# sourceMappingURL=events.js.map
