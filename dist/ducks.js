@@ -1,15 +1,34 @@
 ////////////////// RUBBER DUCK ASSIGNMENT /////////////////////////////
+
+// ducks.js
 var logo_box = document.getElementById("logo_box");
 var logo_img = document.getElementById("logo_img");
 
-logo_box.addEventListener("mouseover", function (event) {
-  console.log(event);
-  logo_img.src = "/src/images/easterchicken.png";
-});
+if (logo_box && logo_img) {
+  logo_box.addEventListener("mouseover", function (event) {
+    console.log("🦆 Mr. Duck says: Quack! Tell me your problem…");
+    console.log(event);
+    logo_img.src = "/src/images/easterchicken.png";
+  });
 
-logo_box.addEventListener("mouseout", function () {
-  logo_img.src = "/src/images/batman_rubber_duck.png";
-});
+  logo_box.addEventListener("mouseout", function () {
+    console.log("🦆 Mr. Duck says: I'll be here when you need me.");
+    logo_img.src = "/src/images/batman_rubber_duck.png";
+  });
+}
+
+// IMAGE SWAP VIRKER
+// var logo_box = document.getElementById("logo_box");
+// var logo_img = document.getElementById("logo_img");
+
+// logo_box.addEventListener("mouseover", function (event) {
+//   console.log(event);
+//   logo_img.src = "/src/images/easterchicken.png";
+// });
+
+// logo_box.addEventListener("mouseout", function () {
+//   logo_img.src = "/src/images/batman_rubber_duck.png";
+// });
 
 /////////////////////////////
 const form = document.getElementById("duckForm");
