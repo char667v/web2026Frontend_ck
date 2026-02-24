@@ -8,32 +8,45 @@
     <title>Mr.Duck</title>
     <script src="dist/helloWorld.js" defer></script>
     <script src="dist/events.js" defer></script>
+    <script src="dist/ducks.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="duck-page">
-
         <header>
-            <a href="/"><img src="/src/images/batman_rubber_duck.jpg" alt="Home" width="48px" height="48px"></a>
-            <h1><a href="/duck.html">Mr.Duck</a></h1>
+            <a href="/" aria-label="Home">
+                <img src="/src/images/batman_rubber_duck.png" alt="Home" width="48" height="48">
+            </a>
+
+            <h1>Mr. Duck family</h1>
+
+            <nav aria-label="Duck pages">
+                <ul class="duck-nav">
+                    <li><a href="/duck.html">Mr.Duck</a></li>
+                    <li><a href="/duck.html">Mrs.Duck</a></li>
+                    <li><a href="/duck.html">Mr.Duck jr</a></li>
+                    <li><a href="/duck.html">Miss.Duck</a></li>
+                </ul>
+            </nav>
         </header>
 
         <main>
             <div class="card">
                 <form id="duckForm">
-                    <label for="message">Explain your problem to Mr. Duck</label>
+                    <label for="message">Explain your problem to Mr. Duck <span class="bounce-arrow"
+                            aria-hidden="true">▼</span></label>
                     <textarea id="message" name="message" placeholder="Type your problem here..."></textarea>
 
                     <div class="row">
-                        <button type="submit">Send to Mr. Duck</button>
+                        <button class="btn1" type="submit">Send to Mr. Duck</button>
                         <p id="status" class="status" role="status" aria-live="polite"></p>
                     </div>
 
-                    <div id="outbox" class="outbox">
+                    <!-- <div id="outbox" class="outbox">
                         <strong>Sent message:</strong>
                         <pre id="sentText"></pre>
-                    </div>
+                    </div> -->
                 </form>
             </div>
         </main>
