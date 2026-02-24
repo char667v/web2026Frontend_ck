@@ -13,17 +13,10 @@
 
 <body>
     <div class="duck-page">
-        <nav>
-            <a href="/">Home</a>
-            <a href="/duck.html">ducks</a>
-        </nav>
 
         <header>
-            <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
-
-            </svg>
-
-            <h1>Mr.Duck</h1>
+            <a href="/"><img src="/src/images/batman_rubber_duck.jpg" alt="Home" width="48px" height="48px"></a>
+            <h1><a href="/duck.html">Mr.Duck</a></h1>
         </header>
 
         <main>
@@ -45,33 +38,41 @@
             </div>
         </main>
     </div>
-    <script>
-        const form = document.getElementById("duckForm");
-        const textarea = document.getElementById("message");
-        const statusEl = document.getElementById("status");
-        const outbox = document.getElementById("outbox");
-        const sentText = document.getElementById("sentText");
-
-        form.addEventListener("submit", (e) => {
-            e.preventDefault();
-
-            const msg = textarea.value.trim();
-
-            if (!msg) {
-                statusEl.textContent = "Please write something first 🙂";
-                outbox.style.display = "none";
-                return;
-            }
-
-            // "Send" (front-end only)
-            statusEl.textContent = "Quack! Message sent to Mr. Duck ✅";
-            sentText.textContent = msg;
-            outbox.style.display = "block";
-
-            textarea.value = "";
-            textarea.focus();
-        });
-    </script>
 </body>
 
 </html>
+
+
+<!-- 
+RUBBER DUCK ASSIGNMENT
+
+We're going to build our own Rubber Duck websiste: Mr.Duck
+     The website should have:   
+        A header with, prferably a rubber duck in a suite as logo
+        A text input of some sort, allowing you to explain your problem to Mr. Duck 
+        A button sending the message to Mr. Duck
+
+    Extras:
+        Add Easter egg Hover effect on Mr. Duck
+        Basiccaly up to ypu , whoat kind of easter egg effect you want to do, but NO simple css hover effect!
+        Add something more interesting - E.g. Mr. Duck uses console.log()to write a message to the console, when you hover it.
+
+    Another extra:
+        We want the site to save our messages, so it remembers our messages whenever we reload
+        We want the site to save all our messages, so it remembers our messages whenever we reload.
+
+        Procedure:
+        • Whenever the user types a message, add the message to an array
+        • Save that array to LocalStorage.
+        • Whenever the site loads (add an event listener for “load”), the site retrieves the array from LocalStorage.
+        • And fills the DOM, with the retrieved messages.
+    
+        Final extra:
+        HTML:
+        • Create a <select> dropdown with several options representing different items.
+        • Add an empty <ul> element to serve as the list where items will be added or removed.
+        • CSS:
+        • Style the list and items for better visual representation.
+        • JavaScript:
+        • Add an event listener to the <select> element that adds a new <li> item to the <ul> when an option is selected. If the item already exists, it should be removed instead.
+-->
