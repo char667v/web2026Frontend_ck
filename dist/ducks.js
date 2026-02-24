@@ -1,25 +1,8 @@
 ////////////////// RUBBER DUCK ASSIGNMENT /////////////////////////////
 
-// ducks.js
-var logo_box = document.getElementById("logo_box");
-var logo_img = document.getElementById("logo_img");
-
-if (logo_box && logo_img) {
-  logo_box.addEventListener("mouseover", function (event) {
-    console.log("🦆 Mr. Duck says: Quack! Tell me your problem…");
-    console.log(event);
-    logo_img.src = "/src/images/easterchicken.png";
-  });
-
-  logo_box.addEventListener("mouseout", function () {
-    console.log("🦆 Mr. Duck says: I'll be here when you need me.");
-    logo_img.src = "/src/images/batman_rubber_duck.png";
-  });
-}
-
 // IMAGE SWAP VIRKER
-// var logo_box = document.getElementById("logo_box");
-// var logo_img = document.getElementById("logo_img");
+// const logo_box = document.getElementById("logo_box");
+// const logo_img = document.getElementById("logo_img");
 
 // logo_box.addEventListener("mouseover", function (event) {
 //   console.log(event);
@@ -30,29 +13,101 @@ if (logo_box && logo_img) {
 //   logo_img.src = "/src/images/batman_rubber_duck.png";
 // });
 
-/////////////////////////////
+//WRITTEN MESSAGE TOT THE CONSOLE WHEN HOVERING OVER LOGO
+const logo_box = document.getElementById("logo_box");
+const logo_img = document.getElementById("logo_img");
+
+if (logo_box && logo_img) {
+  logo_box.addEventListener("mouseover", function (event) {
+    console.log("🦆 Mr. Duck says: Quack! Explain your problem to me…");
+    console.log("Hover event:", event);
+
+    logo_img.src = "/src/images/easterchicken.png";
+  });
+
+  logo_box.addEventListener("mouseout", function () {
+    console.log("🦆 Mr. Duck says: Come back if you get stuck!");
+    logo_img.src = "/src/images/batman_rubber_duck.png";
+  });
+}
+
+//MESSGAE FORM VIRKER
+// const form = document.getElementById("duckForm");
+// const textarea = document.getElementById("message");
+// const statusEl = document.getElementById("status");
+// const sentText = document.getElementById("sentText");
+
+// form.addEventListener("submit", (e) => {
+//   e.preventDefault();
+
+//   const msg = textarea.value.trim();
+
+//   if (!msg) {
+//     statusEl.textContent = "Please write something first 😊";
+//     outbox.style.display = "none";
+//     return;
+//   }
+
+//   // "Send" (front-end only)
+//   statusEl.textContent = "Quack! Message sent to Mr. Duck ✅";
+//   // sentText.textContent = msg;
+//   // outbox.style.display = "block";
+
+//   // textarea.value = "";
+//   // textarea.focus();
+// });
+
+//SAVE ALL MESSAGES (array + localStorage + DOM)
 const form = document.getElementById("duckForm");
 const textarea = document.getElementById("message");
 const statusEl = document.getElementById("status");
 const outbox = document.getElementById("outbox");
 const sentText = document.getElementById("sentText");
+const list = document.getElementById("savedMessages");
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
+let messages = [];
 
-  const msg = textarea.value.trim();
-
-  if (!msg) {
-    statusEl.textContent = "Please write something first 🙂";
-    outbox.style.display = "none";
-    return;
-  }
-
-  // "Send" (front-end only)
-  statusEl.textContent = "Quack! Message sent to Mr. Duck ✅";
-  sentText.textContent = msg;
-  outbox.style.display = "block";
-
-  textarea.value = "";
-  textarea.focus();
+// Når siden loader: hent og vis gemte beskeder
+window.addEventListener("load", () => {
+  const saved = localStorage.getItem("messages");
+  messages = saved ? JSON.parse(saved) : [];
+  showMessages();
 });
+
+// Når man sender: gem beskeden + vis igen
+if (form && textarea && statusEl && outbox && sentText && list) {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const msg = textarea.value.trim();
+
+    if (!msg) {
+      statusEl.textContent = "❌ You forgot to write me something first ❌";
+      outbox.style.display = "none";
+      return;
+    }
+
+    statusEl.textContent = "Your message has been sent to Mr. Duck 🦆 Quaaack!";
+    sentText.textContent = msg;
+    outbox.style.display = "block";
+
+    messages.push(msg);
+    localStorage.setItem("messages", JSON.stringify(messages));
+
+    showMessages();
+
+    textarea.value = "";
+    textarea.focus();
+  });
+}
+
+function showMessages() {
+  if (!list) return;
+
+  list.innerHTML = "";
+  messages.forEach((m) => {
+    const li = document.createElement("li");
+    li.textContent = m;
+    list.appendChild(li);
+  });
+}
