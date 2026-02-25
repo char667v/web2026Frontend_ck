@@ -82,11 +82,13 @@ form.addEventListener("submit", (e) => {
 
   if (!msg) {
     statusEl.textContent = "❌ You forgot to write me something first ❌";
+    statusEl.style.color = "#ff4d4d"; // error
     outbox.style.display = "none";
     return;
   }
 
   statusEl.textContent = "Your message has been sent to Mr. Duck 🦆 Quaaack!";
+  statusEl.style.color = "#22c55e"; // success
   sentText.textContent = msg;
   outbox.style.display = "block";
 

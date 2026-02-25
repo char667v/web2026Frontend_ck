@@ -101,6 +101,7 @@
   font: inherit;
   outline: none;
   background-color: #28292b;
+  color: rgb(246, 246, 246);
 }
 .duck-page textarea:focus {
   /* Type yout problem here...BOX */
@@ -109,7 +110,7 @@
 }
 .duck-page .btn1 {
   background-color: #04aa6d;
-  color: white;
+  color: rgb(246, 246, 246);
   font-weight: 600;
   font-size: small;
   padding: 8px;
