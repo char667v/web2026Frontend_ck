@@ -76,6 +76,7 @@
   font-weight: 800;
   margin-bottom: 8px;
   color: rgb(246, 246, 246);
+  text-align: left;
 }
 .bounce-arrow {
   display: inline-block; /* nødvendigt for transform */
@@ -126,15 +127,14 @@
 /* ************************ */
 .duck-pickers {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 kolonner */
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   align-items: start;
   background: #424547;
   border: 3px solid #046cf4;
   border-radius: 14px;
   padding: 18px;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
-  height: 400px;
+  height: 500px;
   box-shadow: 0 6px 18px #046cf4;
 }
 
@@ -145,19 +145,11 @@
   padding: 12px;
   height: fit-content;
 }
+
 .picker label {
   color: rgb(246, 246, 246);
 }
 
-/* gør select pænt og ens */
-.picker select {
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: 8px;
-  box-sizing: border-box;
-}
-
-/* (valgfrit) pæn liste */
 .picker ul {
   list-style: none;
   padding: 0;
@@ -165,7 +157,6 @@
 }
 
 .picker li {
-  /* border: 1px solid #ddd; */
   padding: 8px 10px;
   border-radius: 8px;
   margin-bottom: 8px;
@@ -174,9 +165,110 @@
   background-color: #424547;
 }
 
-/* responsivt: 1 kolonne på små skærme */
 @media (max-width: 900px) {
   .duck-pickers {
     grid-template-columns: 1fr;
   }
+}
+
+/* -------- Custom dropdown (tilføjelse) -------- */
+
+.duck-dropdown {
+  position: relative;
+}
+
+.duck-trigger {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: small;
+
+  border: 1px solid #cfcfcf;
+  background: #fff;
+  color: #111;
+  text-align: center;
+}
+
+.duck-trigger p {
+  margin: 0;
+}
+
+/* dropdown menu */
+.duck-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 6px);
+  z-index: 9999;
+
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+
+  border-radius: 10px;
+  background: #28292b;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  max-height: 260px;
+  overflow: auto;
+}
+
+.duck-dropdown.open .duck-menu {
+  display: block;
+}
+
+/* menu items (override .picker li) */
+.duck-menu .duck-option {
+  margin-bottom: 0;
+  background: transparent;
+  padding: 8px 10px;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.duck-menu .duck-option:hover {
+  background: #424547;
+}
+
+.duck-menu .duck-option img {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+.duck-menu .duck-option p {
+  margin: 0;
+  font-size: x-small;
+  color: rgb(246, 246, 246);
+}
+
+/* valgte lister: billede + tekst altid */
+#cartoonList li,
+#speciesList li,
+#southAmericaList li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#cartoonList li img,
+#speciesList li img,
+#southAmericaList li img {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+#cartoonList li p,
+#speciesList li p,
+#southAmericaList li p {
+  margin: 0;
 }

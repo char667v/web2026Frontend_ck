@@ -161,7 +161,7 @@ if (speciesSelect && speciesList) {
   });
 }
 
-// 3) Sydamerika-ænder
+// 3) Sydamerikanske ænder
 const southAmericaSelect = document.getElementById("southAmericaSelect");
 const southAmericaList = document.getElementById("southAmericaList");
 
@@ -183,3 +183,73 @@ if (southAmericaSelect && southAmericaList) {
     southAmericaSelect.value = "";
   });
 }
+
+// ///////// DROPDOWN DUCK OPTION CUSTOM //////////////
+
+// function setupDuckDropdown(dropdownEl) {
+//   const button = dropdownEl.querySelector(".duck-trigger");
+//   const menu = dropdownEl.querySelector(".duck-menu");
+//   const targetId = dropdownEl.dataset.target;
+
+//   if (!button || !menu || !targetId) return;
+
+//   const targetList = document.getElementById(targetId);
+//   if (!targetList) return;
+
+//   const placeholderP = button.querySelector("p");
+//   const placeholderText = (placeholderP && placeholderP.textContent) || "-- vælg mellem --";
+
+//   button.addEventListener("click", (e) => {
+//     e.preventDefault();
+
+//     document.querySelectorAll(".duck-dropdown.open").forEach((d) => {
+//       if (d !== dropdownEl) d.classList.remove("open");
+//     });
+
+//     dropdownEl.classList.toggle("open");
+//   });
+
+//   document.addEventListener("click", (e) => {
+//     if (!dropdownEl.contains(e.target)) dropdownEl.classList.remove("open");
+//   });
+
+//   menu.addEventListener("click", (e) => {
+//     const opt = e.target && e.target.closest ? e.target.closest(".duck-option") : null;
+//     if (!opt) return;
+
+//     const value = opt.dataset.value || "";
+//     if (!value) return;
+
+//     const avatar = opt.dataset.avatar || "";
+
+//     const children = Array.from(targetList.children);
+//     const existing = children.find((li) => li.dataset && li.dataset.value === value);
+
+//     if (existing) {
+//       existing.remove();
+//     } else {
+//       const li = document.createElement("li");
+//       li.dataset.value = value;
+
+//       if (avatar) {
+//         const img = document.createElement("img");
+//         img.src = avatar;
+//         img.alt = "";
+//         li.appendChild(img);
+//       }
+
+//       const p = document.createElement("p");
+//       p.textContent = value;
+//       li.appendChild(p);
+
+//       targetList.appendChild(li);
+//     }
+
+//     dropdownEl.classList.remove("open");
+//     if (placeholderP) placeholderP.textContent = placeholderText;
+//   });
+// }
+
+// window.addEventListener("DOMContentLoaded", () => {
+//   document.querySelectorAll(".duck-dropdown").forEach(setupDuckDropdown);
+// });

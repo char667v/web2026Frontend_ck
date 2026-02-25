@@ -112,7 +112,7 @@ function showMessages() {
 }
 
 //DROPDOWN DUCK OPTION
-// 1) Tegneserie-ænder
+//1) Tegneserie-ænder
 const cartoonSelect = document.getElementById("cartoonSelect") as HTMLSelectElement | null;
 const cartoonList = document.getElementById("cartoonList") as HTMLUListElement | null;
 
@@ -180,3 +180,80 @@ if (southAmericaSelect && southAmericaList) {
     southAmericaSelect.value = "";
   });
 }
+
+// ///////// DROPDOWN DUCK OPTION CUSTOM //////////////
+
+// function setupDuckDropdown(dropdownEl: HTMLElement): void {
+//   const button = dropdownEl.querySelector(".duck-trigger") as HTMLButtonElement | null;
+//   const menu = dropdownEl.querySelector(".duck-menu") as HTMLUListElement | null;
+//   const targetId = dropdownEl.dataset.target;
+
+//   if (!button || !menu || !targetId) return;
+
+//   const targetList = document.getElementById(targetId) as HTMLUListElement | null;
+//   if (!targetList) return;
+
+//   const placeholderP = button.querySelector("p") as HTMLParagraphElement | null;
+//   const placeholderText = placeholderP?.textContent ?? "-- vælg mellem --";
+
+//   // Åbn/luk (og luk de andre)
+//   button.addEventListener("click", (e: MouseEvent) => {
+//     e.preventDefault();
+
+//     document.querySelectorAll<HTMLElement>(".duck-dropdown.open").forEach((d) => {
+//       if (d !== dropdownEl) d.classList.remove("open");
+//     });
+
+//     dropdownEl.classList.toggle("open");
+//   });
+
+//   // Klik udenfor lukker
+//   document.addEventListener("click", (e: MouseEvent) => {
+//     const target = e.target as Node | null;
+//     if (target && !dropdownEl.contains(target)) dropdownEl.classList.remove("open");
+//   });
+
+//   // Klik på option (event delegation)
+//   menu.addEventListener("click", (e: MouseEvent) => {
+//     const t = e.target as HTMLElement | null;
+//     const opt = t?.closest(".duck-option") as HTMLElement | null;
+//     if (!opt) return;
+
+//     const value = opt.dataset.value ?? "";
+//     if (!value) return;
+
+//     const avatar = opt.dataset.avatar ?? "";
+
+//     // find eksisterende (uden querySelector-escaping)
+//     const existing = Array.from(targetList.children).find((li) => {
+//       return (li as HTMLElement).dataset.value === value;
+//     }) as HTMLLIElement | undefined;
+
+//     if (existing) {
+//       existing.remove();
+//     } else {
+//       const li = document.createElement("li");
+//       li.dataset.value = value;
+
+//       if (avatar) {
+//         const img = document.createElement("img");
+//         img.src = avatar;
+//         img.alt = "";
+//         li.appendChild(img);
+//       }
+
+//       const p = document.createElement("p");
+//       p.textContent = value;
+//       li.appendChild(p);
+
+//       targetList.appendChild(li);
+//     }
+
+//     dropdownEl.classList.remove("open");
+//     if (placeholderP) placeholderP.textContent = placeholderText;
+//   });
+// }
+
+// window.addEventListener("DOMContentLoaded", () => {
+//   document.querySelectorAll<HTMLElement>(".duck-dropdown").forEach(setupDuckDropdown);
+// });

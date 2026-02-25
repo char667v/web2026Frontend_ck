@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mr.Duck</title>
+    <script src="dist/ducks.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="duck-page">
+        <header>
+            <a id="logo_box" href="/index.html" aria-label="Home">
+                <img id="logo_img" src="/src/images/batman_rubber_duck.png" alt="Home" width="48" height="48">
+            </a>
+
+            <!-- <div id="box" class="coloredBox">Demo øvelse</div> -->
+
+            <h1>Mr. Duck family</h1>
+
+            <nav aria-label="Duck pages">
+                <ul class="duck-nav">
+                    <li><a href="/duck.html">Mr.Duck</a></li>
+                    <li><a href="/duck.html">Mrs.Duck</a></li>
+                    <li><a href="/duck.html">Mr.Duck jr</a></li>
+                    <li><a href="/duck.html">Miss.Duck</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="card">
+                <form id="duckForm">
+                    <label for="message">Explain your problem to Mr. Duck <span class="bounce-arrow"
+                            aria-hidden="true">▼</span></label>
+                    <textarea id="message" name="message" placeholder="Type your problem here..."></textarea>
+
+                    <div class="row">
+                        <button class="btn1" type="submit">Send to Mr. Duck</button>
+                        <p id="status" class="status" role="status" aria-live="polite"></p>
+                    </div>
+
+                    <div id="outbox" class="outbox">
+                        <!-- <strong>Sent message:</strong> -->
+                        <pre id="sentText"></pre>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <ul id="savedMessages"></ul>
+            </div>
+
+            <section class="duck-pickers">
+                <!-- 1) Tegneserie-ænder -->
+                <div class="picker">
+                    <label for="cartoonSelect">Tegneserie-ænder</label>
+
+                    <div class="duck-dropdown" data-target="cartoonList">
+                        <button id="cartoonSelect" type="button" class="duck-trigger">
+                            <p>-- vælg mellem --</p>
+                        </button>
+
+                        <ul class="duck-menu">
+                            <li class="duck-option" data-value="Anders And"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Anders And</p>
+                            </li>
+                            <li class="duck-option" data-value="Rip" data-avatar="/src/images/batman_rubber_duck.png">
+                                <img src="/src/images/batman_rubber_duck.png" alt="">
+                                <p>Rip</p>
+                            </li>
+                            <li class="duck-option" data-value="Rap" data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Rap</p>
+                            </li>
+                            <li class="duck-option" data-value="Rup" data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Rup</p>
+                            </li>
+                            <li class="duck-option" data-value="Joakim von And"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Joakim von And</p>
+                            </li>
+                            <li class="duck-option" data-value="Daisy Duck"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Daisy Duck</p>
+                            </li>
+                            <li class="duck-option" data-value="Glimmer"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Glimmer (Gladstone Gander)</p>
+                            </li>
+                            <li class="duck-option" data-value="Nullemands-Anden"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Nullemands-Anden (GizmoDuck)</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <ul id="cartoonList"></ul>
+                </div>
+
+                <!-- 2) Danske andearter -->
+                <div class="picker">
+                    <label for="speciesSelect">Danske andearter</label>
+
+                    <div class="duck-dropdown" data-target="speciesList">
+                        <button id="speciesSelect" type="button" class="duck-trigger">
+                            <p>-- vælg mellem --</p>
+                        </button>
+
+                        <ul class="duck-menu">
+                            <li class="duck-option" data-value="Gråand" data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Gråand</p>
+                            </li>
+                            <li class="duck-option" data-value="Knarand"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Knarand</p>
+                            </li>
+                            <li class="duck-option" data-value="Spidsand"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Spidsand</p>
+                            </li>
+                            <li class="duck-option" data-value="Pibeand"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Pibeand</p>
+                            </li>
+                            <li class="duck-option" data-value="Krikand"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Krikand</p>
+                            </li>
+                            <li class="duck-option" data-value="Skeand" data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Skeand</p>
+                            </li>
+                            <li class="duck-option" data-value="Ederfugl"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Ederfugl</p>
+                            </li>
+                            <li class="duck-option" data-value="Troldand"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Troldand</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <ul id="speciesList"></ul>
+                </div>
+
+                <!-- 3) Sydamerika-ænder -->
+                <div class="picker">
+                    <label for="southAmericaSelect">Ænder fra Sydamerika</label>
+
+                    <div class="duck-dropdown" data-target="southAmericaList">
+                        <button id="southAmericaSelect" type="button" class="duck-trigger">
+                            <p>-- vælg mellem --</p>
+                        </button>
+
+                        <ul class="duck-menu">
+                            <li class="duck-option" data-value="Brazilian Teal"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Brazilian Teal (Amazonetta brasiliensis)</p>
+                            </li>
+                            <li class="duck-option" data-value="Ringed Teal"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Ringed Teal (Callonetta leucophrys)</p>
+                            </li>
+                            <li class="duck-option" data-value="Chiloe Wigeon"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Chiloe Wigeon (Mareca sibilatrix)</p>
+                            </li>
+                            <li class="duck-option" data-value="Torrent Duck"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Torrent Duck (Merganetta armata)</p>
+                            </li>
+                            <li class="duck-option" data-value="Rosy-billed Pochard"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Rosy-billed Pochard (Netta peposaca)</p>
+                            </li>
+                            <li class="duck-option" data-value="Crested Duck"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Crested Duck (Lophonetta specularioides)</p>
+                            </li>
+                            <li class="duck-option" data-value="Silver Teal"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Silver Teal (Spatula versicolor)</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <ul id="southAmericaList"></ul>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
+
+
+<!-- 
+RUBBER DUCK ASSIGNMENT
+
+We're going to build our own Rubber Duck websiste: Mr.Duck
+     The website should have:   
+        A header with, prferably a rubber duck in a suite as logo
+        A text input of some sort, allowing you to explain your problem to Mr. Duck 
+        A button sending the message to Mr. Duck
+
+    Extras:
+        Add Easter egg Hover effect on Mr. Duck
+        Basiccaly up to ypu , what kind of easter egg effect you want to do, but NO simple css hover effect!
+        Add something more interesting - E.g. Mr. Duck uses console.log()to write a message to the console, when you hover it.
+
+    Another extra:
+        We want the site to save our messages, so it remembers our messages whenever we reload
+        We want the site to save all our messages, so it remembers our messages whenever we reload.
+
+        Procedure:
+        • Whenever the user types a message, add the message to an array
+        • Save that array to LocalStorage.
+        • Whenever the site loads (add an event listener for “load”), the site retrieves the array from LocalStorage.
+        • And fills the DOM, with the retrieved messages.
+    
+        Final extra:
+        HTML:
+        • Create a <select> dropdown with several options representing different items.
+        • Add an empty <ul> element to serve as the list where items will be added or removed.
+        • CSS:Style the list and items for better visual representation.
+        • JavaScript: Add an event listener to the <select> element that adds a new <li> item to the <ul> when an option is selected. If the item already exists, it should be removed instead.
+-->
