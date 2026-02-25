@@ -14,14 +14,14 @@
   margin: 5px;
 }
 
-/****************** Mr. Duck********************/
+/****************** Mr. Duck ********************/
 .duck-page header {
   display: flex;
   align-items: center;
   gap: 12px;
   padding: 20px;
   padding-left: 6%;
-  background: rgb(249, 239, 244);
+  background: rgb(212, 210, 210);
 }
 .duck-page header h1 {
   margin: 0;
@@ -46,13 +46,14 @@
 .duck-page nav {
   margin-left: auto;
 }
+/* ************************ */
 .duck-page main {
   max-width: 760px;
   margin: 28px auto;
   padding: 40px 20px;
 }
 .duck-page {
-  background-color: rgb(8, 8, 8);
+  background-color: rgb(182, 172, 172);
   margin: 0;
   font-family:
     system-ui,
@@ -63,17 +64,18 @@
     sans-serif;
 }
 .duck-page .card {
-  background: white;
-  border: 3px solid #f404f4;
+  background: #424547;
+  border: 3px solid #046cf4;
   border-radius: 14px;
   padding: 18px;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  box-shadow: 0 6px 18px #046cf4;
 }
 .duck-page label {
   /* Explain your problem to Mr. Duck */
   display: block;
   font-weight: 800;
   margin-bottom: 8px;
+  color: rgb(246, 246, 246);
 }
 .bounce-arrow {
   display: inline-block; /* nødvendigt for transform */
@@ -90,7 +92,7 @@
 }
 .duck-page textarea {
   /* Type yout problem here... */
-  width: 94%;
+  width: 96%;
   min-height: 140px;
   resize: vertical;
   padding: 12px 12px;
@@ -98,6 +100,7 @@
   border-radius: 12px;
   font: inherit;
   outline: none;
+  background-color: #28292b;
 }
 .duck-page textarea:focus {
   /* Type yout problem here...BOX */
@@ -105,14 +108,74 @@
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 .duck-page .btn1 {
-  background-color: white;
-  color: black;
+  background-color: #04aa6d;
+  color: white;
+  font-weight: 600;
+  font-size: small;
+  padding: 8px;
   border-radius: 4px;
   border: 2px solid #04aa6d;
 }
 .duck-page .btn1:hover {
   border: 2px solid #04aa6d;
   border-radius: 4px;
-  color: white;
+  color: black;
   background-color: #04aa6d;
+}
+/* ************************ */
+.duck-pickers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 kolonner */
+  gap: 16px;
+  align-items: start;
+  background: #424547;
+  border: 3px solid #046cf4;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  height: 400px;
+  box-shadow: 0 6px 18px #046cf4;
+}
+
+.picker {
+  border: 3px solid #28292b;
+  background: #28292b;
+  border-radius: 8px;
+  padding: 12px;
+  height: fit-content;
+}
+.picker label {
+  color: rgb(246, 246, 246);
+}
+
+/* gør select pænt og ens */
+.picker select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* (valgfrit) pæn liste */
+.picker ul {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+
+.picker li {
+  /* border: 1px solid #ddd; */
+  padding: 8px 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: x-small;
+  color: rgb(246, 246, 246);
+  background-color: #424547;
+}
+
+/* responsivt: 1 kolonne på små skærme */
+@media (max-width: 900px) {
+  .duck-pickers {
+    grid-template-columns: 1fr;
+  }
 }

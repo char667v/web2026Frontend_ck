@@ -111,3 +111,73 @@ function showMessages() {
     list.appendChild(li);
   });
 }
+
+//DROPDOWN DUCK OPTION
+// 1) Tegneserie-ænder
+const cartoonSelect = document.getElementById("cartoonSelect");
+const cartoonList = document.getElementById("cartoonList");
+
+if (cartoonSelect && cartoonList) {
+  cartoonSelect.addEventListener("change", () => {
+    const value = cartoonSelect.value;
+    if (value === "") return;
+
+    const existing = cartoonList.querySelector(`li[data-value="${value}"]`);
+
+    if (existing) existing.remove();
+    else {
+      const li = document.createElement("li");
+      li.textContent = value;
+      li.setAttribute("data-value", value);
+      cartoonList.appendChild(li);
+    }
+
+    cartoonSelect.value = "";
+  });
+}
+
+// 2) Danske andearter
+const speciesSelect = document.getElementById("speciesSelect");
+const speciesList = document.getElementById("speciesList");
+
+if (speciesSelect && speciesList) {
+  speciesSelect.addEventListener("change", () => {
+    const value = speciesSelect.value;
+    if (value === "") return;
+
+    const existing = speciesList.querySelector(`li[data-value="${value}"]`);
+
+    if (existing) existing.remove();
+    else {
+      const li = document.createElement("li");
+      li.textContent = value;
+      li.setAttribute("data-value", value);
+      speciesList.appendChild(li);
+    }
+
+    speciesSelect.value = "";
+  });
+}
+
+// 3) Sydamerika-ænder
+const southAmericaSelect = document.getElementById("southAmericaSelect");
+const southAmericaList = document.getElementById("southAmericaList");
+
+if (southAmericaSelect && southAmericaList) {
+  southAmericaSelect.addEventListener("change", () => {
+    const value = southAmericaSelect.value;
+    if (value === "") return;
+
+    const existing = southAmericaList.querySelector(`li[data-value="${value}"]`);
+
+    if (existing) existing.remove();
+    else {
+      const li = document.createElement("li");
+      li.textContent = value;
+      li.setAttribute("data-value", value);
+      southAmericaList.appendChild(li);
+    }
+
+    southAmericaSelect.value = "";
+  });
+}

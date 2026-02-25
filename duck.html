@@ -52,6 +52,68 @@
             <div>
                 <ul id="savedMessages"></ul>
             </div>
+
+            <section class="duck-pickers">
+                <div class="picker">
+                    <label for="cartoonSelect">Tegneserie-ænder</label>
+                    <select id="cartoonSelect">
+                        <option value="">-- vælg mellem --</option>
+                        <option value="Anders And">Anders And</option>
+                        <option value="Rip" data-avatar="/src/images/rubber_duck_right.jpg">Rip</option>
+                        <option value="Rap" data-avatar="/src/images/rubber_duck_right.jpg">Rap</option>
+                        <option value="Rup" d ata-avatar="/src/images/rubber_duck_right.jpg">Rup</option>
+                        <option value="Joakim von And" data-avatar="/src/images/rubber_duck_right.jpg">Joakim von And
+                        </option>
+                        <option value="Daisy Duck" data-avatar="/src/images/rubber_duck_right.jpg">Daisy Duck</option>
+                        <option value="Glimmer" data-avatar="/src/images/rubber_duck_right.jpg">Glimmer (Gladstone
+                            Gander)</option>
+                        <option value="Nullemands-Anden" data-avatar="/src/images/rubber_duck_right.jpg">
+                            Nullemands-Anden (GizmoDuck)</option>
+                    </select>
+
+                    <ul id="cartoonList"></ul>
+                </div>
+
+                <div class="picker">
+                    <label for="speciesSelect">Danske andearter</label>
+                    <select id="speciesSelect">
+                        <option value="">-- vælg mellem --</option>
+                        <option value="Gråand" data-avatar="/src/images/rubber_duck_right.jpg">Gråand</option>
+                        <option value="Knarand" data-avatar="/src/images/rubber_duck_right.jpg">Knarand</option>
+                        <option value="Spidsand" data-avatar="/src/images/rubber_duck_right.jpg">Spidsand</option>
+                        <option value="Pibeand" data-avatar="/src/images/rubber_duck_right.jpg">Pibeand</option>
+                        <option value="Krikand" data-avatar="/src/images/rubber_duck_right.jpg">Krikand</option>
+                        <option value="Skeand" data-avatar="/src/images/rubber_duck_right.jpg">Skeand</option>
+                        <option value="Ederfugl" data-avatar="/src/images/rubber_duck_right.jpg">Ederfugl</option>
+                        <option value="Troldand" data-avatar="/src/images/rubber_duck_right.jpg">Troldand</option>
+                    </select>
+
+                    <ul id="speciesList"></ul>
+                </div>
+
+                <div class="picker">
+                    <label for="southAmericaSelect">Ænder fra Sydamerika</label>
+                    <select id="southAmericaSelect">
+                        <option value="">-- vælg mellem --</option>
+                        <option value="Brazilian Teal" data-avatar="/src/images/rubber_duck_right.jpg">Brazilian Teal
+                            (Amazonetta brasiliensis)</option>
+                        <option value="Ringed Teal" data-avatar="/src/images/rubber_duck_right.jpg">Ringed Teal
+                            (Callonetta leucophrys)</option>
+                        <option value="Chiloe Wigeon" data-avatar="/src/images/rubber_duck_right.jpg">Chiloe Wigeon
+                            (Mareca sibilatrix)</option>
+                        <option value="Torrent Duck" data-avatar="/src/images/rubber_duck_right.jpg">Torrent Duck
+                            (Merganetta armata)</option>
+                        <option value="Rosy-billed Pochard" data-avatar="/src/images/rubber_duck_right.jpg">Rosy-billed
+                            Pochard (Netta peposaca)</option>
+                        <option value="Crested Duck"> data-avatar="/src/images/rubber_duck_right.jpg"Crested Duck
+                            (Lophonetta specularioides)</option>
+                        <option value="Silver Teal" data-avatar="/src/images/rubber_duck_right.jpg">Silver Teal (Spatula
+                            versicolor)</option>
+                    </select>
+
+                    <ul id="southAmericaList"></ul>
+                </div>
+            </section>
         </main>
     </div>
 </body>
@@ -87,8 +149,6 @@ We're going to build our own Rubber Duck websiste: Mr.Duck
         HTML:
         • Create a <select> dropdown with several options representing different items.
         • Add an empty <ul> element to serve as the list where items will be added or removed.
-        • CSS:
-        • Style the list and items for better visual representation.
-        • JavaScript:
-        • Add an event listener to the <select> element that adds a new <li> item to the <ul> when an option is selected. If the item already exists, it should be removed instead.
+        • CSS:Style the list and items for better visual representation.
+        • JavaScript: Add an event listener to the <select> element that adds a new <li> item to the <ul> when an option is selected. If the item already exists, it should be removed instead.
 -->
