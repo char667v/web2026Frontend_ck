@@ -47,11 +47,11 @@ const input: any = document.getElementById("inputTodo");
 const btnAddTodo: HTMLElement | null = document.getElementById("btnTodo");
 
 window.addEventListener("load", () => {
- // let name = prompt("What is your name?");
-  // alert ("Hello", + name);
+  let name = prompt("What is your name?");
+  alert("Hello", + name);
 });
 
-alert(new Date(2026,1,27))
+alert(new Date(2026, 1, 27));
 
 btnAddTodo.addEventListener("click", () => {
   const todoValue = input.value; // retrieve user input
