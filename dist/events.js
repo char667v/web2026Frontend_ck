@@ -33,6 +33,7 @@ btn.addEventListener("mouseout", function () {
 //   input.value = "";
 // });
 ///////////////////////////////////////////////
+// Exercise add date to your duck project - this works but not not as expected; correct it
 var input = document.getElementById("inputTodo");
 var btnAddTodo = document.getElementById("btnTodo");
 window.addEventListener("load", function () {
@@ -52,4 +53,18 @@ btnAddTodo.addEventListener("click", function () {
     document.getElementById("todos").prepend(li); //add li to ul
     input.value = "";
 });
+///////////////////////////////////////////////
+// Form
+document.getElementById("formUser")
+    .addEventListener("click", (e));
+Event;
+{ // e kan være alt muligt men altid det samme
+    e.preventDefault();
+}
+;
+var firstname = document.getElementById("firstname").value;
+var lastname = document.getElementById("lastname").value;
+var email = document.getElementById("email").value;
+var password = document.getElementById("password").value;
+console.log(firstname, lastname, email, password);
 //# sourceMappingURL=events.js.map

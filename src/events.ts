@@ -43,6 +43,7 @@ btn.addEventListener("mouseout", () => {
 // });
 
 ///////////////////////////////////////////////
+// Exercise add date to your duck project - this works but not not as expected; correct it
 const input: any = document.getElementById("inputTodo");
 const btnAddTodo: HTMLElement | null = document.getElementById("btnTodo");
 
@@ -67,3 +68,17 @@ btnAddTodo.addEventListener("click", () => {
   document.getElementById("todos").prepend(li); //add li to ul
   input.value = "";
 });
+
+///////////////////////////////////////////////
+// Form
+document.getElementById("formUser")
+.addEventListener("click", (e; Event) => { // e kan være alt muligt men altid det samme
+    e.preventDefault();
+});
+
+const firstname = (document.getElementById("firstname") as HTMLInputElement).value;
+const lastname = (document.getElementById("lastname") as HTMLInputElement).value;
+const email = (document.getElementById("email") as HTMLInputElement).value;
+const password = (document.getElementById("password") as HTMLInputElement).value;
+
+  console.log(firstname, lastname, email, password);
