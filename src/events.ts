@@ -48,7 +48,7 @@ const btnAddTodo: HTMLElement | null = document.getElementById("btnTodo");
 
 window.addEventListener("load", () => {
   let name = prompt("What is your name?");
-  alert("Hello", + name);
+  alert("Hello " + name);
 });
 
 alert(new Date(2026, 1, 27));
