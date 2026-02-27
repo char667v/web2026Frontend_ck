@@ -41,3 +41,9 @@ btnAddTodo.addEventListener("click", () => {
   document.getElementById("todos").prepend(li); //add li to ul
   input.value = "";
 });
+
+///////////////////////////////////////////////
+window.addEventListener("load", () => {
+ // let name = prompt("What is your name?");
+  // alert ("Hello", + name);
+});
