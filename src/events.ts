@@ -24,8 +24,34 @@ btn.addEventListener("mouseout", () => {
 });
 
 ///////////////////////////////////////////////
+// const input: any = document.getElementById("inputTodo");
+// const btnAddTodo: HTMLElement | null = document.getElementById("btnTodo");
+
+// btnAddTodo.addEventListener("click", () => {
+//   const todoValue = input.value; // retrieve user input
+
+//   // create a new li - element
+//   const li = document.createElement("li");
+//   li.textContent = todoValue; // set its content to ...
+//   li.addEventListener("click", function () {
+//     // add event listener to the new li element
+//     this.remove(); // remove the li-element the user clicked
+//   });
+
+//   document.getElementById("todos").prepend(li); //add li to ul
+//   input.value = "";
+// });
+
+///////////////////////////////////////////////
 const input: any = document.getElementById("inputTodo");
 const btnAddTodo: HTMLElement | null = document.getElementById("btnTodo");
+
+window.addEventListener("load", () => {
+ // let name = prompt("What is your name?");
+  // alert ("Hello", + name);
+});
+
+alert(new Date(2026,1,27))
 
 btnAddTodo.addEventListener("click", () => {
   const todoValue = input.value; // retrieve user input
@@ -40,10 +66,4 @@ btnAddTodo.addEventListener("click", () => {
 
   document.getElementById("todos").prepend(li); //add li to ul
   input.value = "";
-});
-
-///////////////////////////////////////////////
-window.addEventListener("load", () => {
- // let name = prompt("What is your name?");
-  // alert ("Hello", + name);
 });
