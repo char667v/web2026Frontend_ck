@@ -113,6 +113,9 @@
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
+#sentText {
+  color: #424547; /* Tekst der gemmes vises lige under btn/skjuler teksten */
+}
 .duck-page .btn1 {
   background-color: #04aa6d;
   color: rgb(246, 246, 246);
@@ -178,6 +181,7 @@
   }
 }
 
+/* -------- KUN for DUCK_TEST.HTML -------- */
 /* -------- Custom dropdown (tilføjelse) -------- */
 .duck-dropdown {
   position: relative;
