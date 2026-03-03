@@ -204,3 +204,21 @@ const alexanderSovOverSig = await fetch(url, {
   console.log(data);
 
 });
+
+// Joke exercise
+document.getElementById("btnJoke").addEventListener("click", async function() {
+    const url = 'https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist';
+    const x = await fetch(url, {
+        method: 'GET'
+    })
+
+    // Svarer serveren med en statuskode som er en fejl
+    if (!x.ok) {
+        alert("Noget gik galt");
+    }
+
+    // Konvertér fra json til javascript repræsentation
+    const data = await x.json(); 
+    console.log(data);
+    
+});
