@@ -1,3 +1,4 @@
+import { getUsers } from "./api-functions";
 //alert("Hej Daniel");
 
 const box: HTMLElement | null = document.getElementById("box");
@@ -6,6 +7,12 @@ box.addEventListener("mouseover", function (event: MouseEvent) {
   // function runs when user clicks on box
   console.log(event);
   this.style.backgroundColor = "red";
+});
+
+fetch("/api/users", {
+  headers: {
+    Authorization: "Bearer " + "your jwt here"
+  }
 });
 
 box.addEventListener("mouseout", function (event: MouseEvent) {
@@ -24,6 +31,7 @@ btn.addEventListener("mouseout", () => {
 });
 
 ///////////////////////////////////////////////
+// Eksempel
 // const input: any = document.getElementById("inputTodo");
 // const btnAddTodo: HTMLElement | null = document.getElementById("btnTodo");
 
@@ -57,55 +65,66 @@ const btnAddTodo: HTMLElement | null = document.getElementById("btnTodo");
 btnAddTodo.addEventListener("click", () => {
   const todoValue = input.value; // retrieve user input
 
+  console.log(new Date().toLocaleString());
   // create a new li - element
   const li = document.createElement("li");
+  li.title = new Date().toUTCString();
   li.textContent = todoValue; // set its content to ...
-  li.addEventListener("click", function () {
-    // add event listener to the new li element
-    this.remove(); // remove the li-element the user clicked
-  });
+  li.addEventListener("click", function() { // add event listener to the new li element
+      this.remove(); // remove the li-element the user clicked
+  })
 
   document.getElementById("todos").prepend(li); //add li to ul
   input.value = "";
 });
 
+// Keep it DRY - Dont Repeat Yourself
+function addErrorLi(errormessage: string): void {
+    const li = document.createElement("li") // create li element
+    li.textContent = errormessage; // Sets content
+    document.getElementById("errors").appendChild(li); // adds li to ul
+}
+
 ///////////////////////////////////////////////
 // Form
-document.getElementById("formUser").addEventListener("submit", (e: Event) => { // e kan være alt muligt, men altid være det samme
+document.getElementById("formUser")?.addEventListener("submit", (e: Event) => {
   e.preventDefault();
 
-  const firstname = (document.getElementById("firstname") as HTMLInputElement).value;
-  const lastname = (document.getElementById("lastname") as HTMLInputElement).value;
-  const email = (document.getElementById("email") as HTMLInputElement).value;
-  const password = (document.getElementById("password") as HTMLInputElement).value;
+  const firstname = (document.getElementById("firstname") as HTMLInputElement).value.trim();
+  const lastname = (document.getElementById("lastname") as HTMLInputElement).value.trim();
+  const email = (document.getElementById("email") as HTMLInputElement).value.trim();
+  const password = (document.getElementById("password") as HTMLInputElement).value.trim();
 
-
-
-  console.log(firstname, lastname, email, password);
-  const errors = document.createElement("li");
-  errors.appendChild(li);
+  const errors = document.getElementById("errors") as HTMLUListElement;
+  errors.innerHTML = "";
 
   if (firstname === "") {
-    const li = document.createElement("li") // create li element
-    li.textContent = "Firstname must be filled out"; // sets content
-    errors.appendChild(li); // adds li to ul
-  }
-  if (lastname === "") {
-    const li = document.createElement("li") // create li element
-    li.textContent = "Lastname must be filled out"; // sets content
-    errors.appendChild(li); // adds li to ul
-  }
-    if (email === "") {
-    const li = document.createElement("li") // create li element
-    li.textContent = "Email must be filled out"; // sets content
-    errors.appendChild(li); // adds li to ul
-  }
-      if (password === "") {
-    const li = document.createElement("li") // create li element
-    li.textContent = "Password must be filled out"; // sets content
-    errors.appendChild(li); // adds li to ul
+    const li = document.createElement("li");
+    li.textContent = "Firstname must be filled out";
+    errors.appendChild(li);
   }
 
+  if (lastname === "") {
+    const li = document.createElement("li");
+    li.textContent = "Lastname must be filled out";
+    errors.appendChild(li);
+  }
+
+  if (email === "") {
+    const li = document.createElement("li");
+    li.textContent = "Email must be filled out";
+    errors.appendChild(li);
+  }
+
+  if (password === "") {
+    const li = document.createElement("li");
+    li.textContent = "Password must be filled out";
+    errors.appendChild(li);
+  }
+
+  if (errors.children.length > 0) return;
+
+  console.log(firstname, lastname, email, password);
 });
 
 // document.getElementById("formUser").addEventListener("submit", (e: Event) => {
@@ -190,35 +209,27 @@ document.getElementById("formUser").addEventListener("submit", (e: Event) => { /
 // });
 
 // Joke exercise
-document.getElementById("btnJoke").addEventListener("click", async function() {
-const url = "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist";
-const alexanderSovOverSig = await fetch(url, {
-  method: 'GET'
-})
+document.getElementById("btnJoke")?.addEventListener("click", async () => {
+  const url = "https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit";
+  const x = await fetch(url, { method: "GET" });
 
-  if (!alexanderSovOverSigOgDetErOk.ok) {
+  // Svarer serveren med en statuskode som er en fejl
+  if (!x.ok) {
     alert("Noget gik galt");
+    return;
   }
 
-  const data = await alexanderSovOverSigOgDetErOk.json();
+  // Konvertér fra json til javascript repræsentation
+  const data: any = await x.json();
   console.log(data);
 
-});
+  // ADDITION: vis i browseren
+  const jokeText = document.getElementById("jokeText") as HTMLElement | null;
+  if (!jokeText) return;
 
-// Joke exercise
-document.getElementById("btnJoke").addEventListener("click", async function() {
-    const url = 'https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist';
-    const x = await fetch(url, {
-        method: 'GET'
-    })
-
-    // Svarer serveren med en statuskode som er en fejl
-    if (!x.ok) {
-        alert("Noget gik galt");
-    }
-
-    // Konvertér fra json til javascript repræsentation
-    const data = await x.json(); 
-    console.log(data);
-    
+  if (data.type === "single") {
+    jokeText.textContent = data.joke;
+  } else {
+    jokeText.textContent = data.setup + " " + data.delivery;
+  }
 });

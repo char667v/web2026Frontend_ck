@@ -91,35 +91,44 @@ btnAddTodo.addEventListener("click", function () {
 });
 ///////////////////////////////////////////////
 // Form
-document.getElementById("formUser").addEventListener("submit", function (e) {
-    e.preventDefault();
-    var firstname = document.getElementById("firstname").value;
-    var lastname = document.getElementById("lastname").value;
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    console.log(firstname, lastname, email, password);
-    var errors = document.createElement("li");
+document.getElementById("formUser")?.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  var firstname = document.getElementById("firstname").value.trim();
+  var lastname = document.getElementById("lastname").value.trim();
+  var email = document.getElementById("email").value.trim();
+  var password = document.getElementById("password").value.trim();
+
+  var errors = document.getElementById("errors");
+  errors.innerHTML = "";
+
+  if (firstname === "") {
+    var li = document.createElement("li");
+    li.textContent = "Firstname must be filled out";
     errors.appendChild(li);
-    if (firstname === "") {
-        var li = document.createElement("li"); // create li element
-        li.textContent = "Firstname must be filled out"; // sets content
-        errors.appendChild(li); // adds li to ul
-    }
-    if (lastname === "") {
-        var li = document.createElement("li"); // create li element
-        li.textContent = "Lastname must be filled out"; // sets content
-        errors.appendChild(li); // adds li to ul
-    }
-    if (email === "") {
-        var li = document.createElement("li"); // create li element
-        li.textContent = "Email must be filled out"; // sets content
-        errors.appendChild(li); // adds li to ul
-    }
-    if (password === "") {
-        var li = document.createElement("li"); // create li element
-        li.textContent = "Password must be filled out"; // sets content
-        errors.appendChild(li); // adds li to ul
-    }
+  }
+
+  if (lastname === "") {
+    var li = document.createElement("li");
+    li.textContent = "Lastname must be filled out";
+    errors.appendChild(li);
+  }
+
+  if (email === "") {
+    var li = document.createElement("li");
+    li.textContent = "Email must be filled out";
+    errors.appendChild(li);
+  }
+
+  if (password === "") {
+    var li = document.createElement("li");
+    li.textContent = "Password must be filled out";
+    errors.appendChild(li);
+  }
+
+  if (errors.children.length > 0) return;
+
+  console.log(firstname, lastname, email, password);
 });
 // document.getElementById("formUser").addEventListener("submit", (e: Event) => {
 //   e.preventDefault();
@@ -186,28 +195,52 @@ document.getElementById("formUser").addEventListener("submit", function (e) {
 //   console.log(firstname, lastname, email, password);
 // });
 // Joke exercise
-document.getElementById("btnJoke").addEventListener("click", function () {
-    return __awaiter(this, void 0, void 0, function () {
-        var url, alexanderSovOverSig, data;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    url = "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist";
-                    return [4 /*yield*/, fetch(url, {
-                            method: 'GET'
-                        })];
-                case 1:
-                    alexanderSovOverSig = _a.sent();
-                    if (!alexanderSovOverSigOgDetErOk.ok) {
-                        alert("Noget gik galt");
-                    }
-                    return [4 /*yield*/, alexanderSovOverSigOgDetErOk.json()];
-                case 2:
-                    data = _a.sent();
-                    console.log(data);
-                    return [2 /*return*/];
-            }
-        });
-    });
+// document.getElementById("btnJoke").addEventListener("click", function () {
+//     return __awaiter(this, void 0, void 0, function () {
+//         var url, alexanderSovOverSig, data;
+//         return __generator(this, function (_a) {
+//             switch (_a.label) {
+//                 case 0:
+//                     url = "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist";
+//                     return [4 /*yield*/, fetch(url, {
+//                             method: 'GET'
+//                         })];
+//                 case 1:
+//                     alexanderSovOverSig = _a.sent();
+//                     if (!alexanderSovOverSigOgDetErOk.ok) {
+//                         alert("Noget gik galt");
+//                     }
+//                     return [4 /*yield*/, alexanderSovOverSigOgDetErOk.json()];
+//                 case 2:
+//                     data = _a.sent();
+//                     console.log(data);
+//                     return [2 /*return*/];
+//             }
+//         });
+//     });
+// });
+
+//Joke
+document.getElementById("btnJoke").addEventListener("click", async function () {
+  const url = "https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit";
+  const x = await fetch(url, { method: "GET" });
+
+  // Svarer serveren med en statuskode som er en fejl
+  if (!x.ok) {
+    alert("Noget gik galt");
+    return;
+  }
+
+  // Konvertér fra json til javascript repræsentation
+  const data = await x.json();
+  console.log(data);
+
+  // ADDITION: vis i browseren
+  const jokeText = document.getElementById("jokeText");
+  if (data.type === "single") {
+    jokeText.textContent = data.joke;
+  } else {
+    jokeText.textContent = data.setup + " " + data.delivery;
+  }
 });
 //# sourceMappingURL=events.js.map

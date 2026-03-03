@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="body">
     <nav>
         <a href="/">Home</a>
         <a href="/duck.html">ducks</a>
@@ -30,16 +30,19 @@
             <input placeholder="email" id="email" type="email" />
             <input placeholder="password" id="password" type="password" />
 
-            <p id="errors"></p>
+            <p id="error"></p>
+            <ul id="errors"></ul>
 
             <button>Gem bruger</button>
         </form>
 
-        <button id="btnJoke">Get joke</button> <!-- tilføjet fra sidste lektion -->
+        <button id="btnJoke"> Get joke 😂 </button> <!-- tilføjet fra sidste lektion -->
+        <p id="jokeText"></p>
 
+        <br>
 
         <button id="btnHover">Hover</button>
-        <div id="divText" class="hidden boxStyle">Now you see me</div>
+        <div id="divText" class="hidden boxStyle">Now you see me 😊</div>
         <div id="box" class="coloredBox">Demo øvelse</div>
 
         <input id="inputTodo" placeholder="Add your todo" />
