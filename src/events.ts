@@ -9,7 +9,7 @@ box.addEventListener("mouseover", function (event: MouseEvent) {
   this.style.backgroundColor = "red";
 });
 
-fetch("/api/users", {
+fetch("/api/users", { //tilføjet fra forrig lektion
   headers: {
     Authorization: "Bearer " + "your jwt here"
   }
@@ -20,6 +20,7 @@ box.addEventListener("mouseout", function (event: MouseEvent) {
 });
 
 ///////////////////////////////////////////////
+// Hover btn
 const btn: HTMLElement | null = document.getElementById("btnHover");
 const div: HTMLElement | null = document.getElementById("divText");
 
@@ -56,8 +57,8 @@ const input: any = document.getElementById("inputTodo");
 const btnAddTodo: HTMLElement | null = document.getElementById("btnTodo");
 
 // window.addEventListener("load", () => {
-//   // let name = prompt("What is your name?");
-//   // alert("Hello " + name);
+//   let name = prompt("What is your name?");
+//   alert("Hello " + name);
 // });
 
 // alert(new Date(2026, 1, 27));
@@ -208,6 +209,7 @@ document.getElementById("formUser")?.addEventListener("submit", (e: Event) => {
 //   console.log(firstname, lastname, email, password);
 // });
 
+///////////////////////////////////////////////
 // Joke exercise
 document.getElementById("btnJoke")?.addEventListener("click", async () => {
   const url = "https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit";
@@ -232,4 +234,43 @@ document.getElementById("btnJoke")?.addEventListener("click", async () => {
   } else {
     jokeText.textContent = data.setup + " " + data.delivery;
   }
+});
+
+///////////////////////////////////////////////
+//
+async function signup(myUsername, myPassword) {
+    const port = 8080
+    const backendUrl = "http://localhost:" + port;
+    const response = await fetch(backendUrl, {
+        method: 'POST', 
+        body: JSON.stringify({username: myUsername, password: myPassword })
+    })
+
+    if (!response.ok) {
+        alert("Something went wrong signing up");
+    }
+
+    const data = await response.json(); // reads reponse from server, converts from json
+    console.log(data);
+
+}
+
+// waiting on page to load, and then run some js
+window.addEventListener("load", async () => {
+    const users = await getUsers();
+
+    users.map((user) => {
+        const template: any = document.getElementById("template");
+        const kopi = template.content.cloneNode(true);
+
+        kopi.getElementById("name").textContent = user.firstname + " " + user.lastname
+        kopi.getElementById("email").textContent = user.email + " " + user.email
+        kopi.getElementById("password").textContent = user.password
+
+        document.getElementById("userContainer").appendChild(kopi);
+    })
+    
+
+    // let name = prompt("What is your name?");
+    // alert("Hello, " + name);
 });
