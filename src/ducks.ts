@@ -67,10 +67,25 @@ const outbox = document.getElementById("outbox") as HTMLElement;
 const sentText = document.getElementById("sentText") as HTMLElement;
 const list = document.getElementById("savedMessages") as HTMLUListElement;
 
-let messages: string[] = [];
+let messages: string[] = []; //Dette gør at besked-systemet virker
+
+// load: hent og vis
+// window.addEventListener("load", () => {
+//   const saved = localStorage.getItem("messages");
+//   messages = saved ? JSON.parse(saved) : [];
+//   showMessages();
+// });
+
+//////////////// EXERCISE 1 – MR. DUCK GREETING //////////////////
 
 // load: hent og vis
 window.addEventListener("load", () => {
+  const userName = prompt("What is your name?");
+
+  if (userName) {
+    statusEl.textContent = `Hello ${userName}!`;
+  }
+
   const saved = localStorage.getItem("messages");
   messages = saved ? JSON.parse(saved) : [];
   showMessages();
