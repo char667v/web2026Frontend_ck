@@ -128,6 +128,42 @@ document.getElementById("formUser")?.addEventListener("submit", (e: Event) => {
   console.log(firstname, lastname, email, password);
 });
 
+// Form Christians version
+// document.getElementById("formUser")
+// .addEventListener("click", (alexanderErISverige: Event) => {
+//     alexanderErISverige.preventDefault(); // stops default form behaviour, to send a post request to server
+
+//     const firstname = (document.getElementById("firstname") as HTMLInputElement).value;
+//     const lastname = (document.getElementById("lastname") as HTMLInputElement).value;
+//     const email = (document.getElementById("email") as HTMLInputElement).value;
+//     const password = (document.getElementById("password") as HTMLInputElement).value;
+    
+//     console.log(firstname, lastname, email, password);
+//     //const errors = document.getElementById("errors");
+//     document.getElementById("errors").textContent = "";
+//     if (firstname.trim() === "") {
+//         addErrorLi("Firstname must be filled out");
+//     }
+//     if (lastname.trim() === "") {
+//         addErrorLi("Lastname must be filled out");
+//     }
+    
+//     if (email.trim() === "") {
+//         addErrorLi("Email must be filled out");
+//     } else {
+//         if (!email.includes("@")) {
+//             addErrorLi("Email must include a @")
+//         }
+//     }
+//     if (password.trim() === "") {
+//         addErrorLi("Password must be filled out");
+//     }
+    
+// })
+
+
+
+// Form med advanced email udgave
 // document.getElementById("formUser").addEventListener("submit", (e: Event) => {
 //   e.preventDefault();
 
@@ -208,6 +244,7 @@ document.getElementById("formUser")?.addEventListener("submit", (e: Event) => {
 
 //   console.log(firstname, lastname, email, password);
 // });
+
 
 ///////////////////////////////////////////////
 // Joke exercise
