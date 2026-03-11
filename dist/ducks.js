@@ -10,7 +10,7 @@ logo_box.addEventListener("mouseover", function (event) {
 });
 
 logo_box.addEventListener("mouseout", function () {
-  logo_img.src = "/src/images/batman_rubber_duck.png";
+  logo_img.src = "/src/images/duck_ck.png";
 });
 
 // //WRITTEN MESSAGE IN THE CONSOLE WHEN HOVERING OVER LOGO
