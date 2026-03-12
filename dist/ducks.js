@@ -2,13 +2,15 @@
 //IMAGE SWAP VIRKER
 const logo_box = document.getElementById("logo_box");
 const logo_img = document.getElementById("logo_img");
-logo_box.addEventListener("mouseover", function (event) {
-    console.log(event);
-    logo_img.src = "/src/images/easterchicken.png";
-});
-logo_box.addEventListener("mouseout", function () {
-    logo_img.src = "/src/images/duck_ck.png";
-});
+if (logo_box && logo_img) { // tilføjet kør hover-koden kun hvis begge elementer findes
+    logo_box.addEventListener("mouseover", function (event) {
+        console.log(event);
+        logo_img.src = "/src/images/easterchicken.png";
+    });
+    logo_box.addEventListener("mouseout", function () {
+        logo_img.src = "/src/images/duck_ck.png";
+    });
+}
 // //WRITTEN MESSAGE IN THE CONSOLE WHEN HOVERING OVER LOGO
 // Har udkommenteret denne da man ikke kan loade to scripts der begge deklarerer logo_box globalt i samme scope
 // const logo_box: HTMLElement | null = document.getElementById("logo_box");
@@ -62,10 +64,28 @@ let messages = []; //Dette gør at besked-systemet virker
 //////////////// EXERCISE 1 – MR. DUCK GREETING //////////////////
 // linje 72-77 er ændret til nedenstående
 // load: hent og vis
+// window.addEventListener("load", () => {
+//   const userName = prompt("What is your name?");
+//   if (userName) {
+//     statusEl.textContent = `Hello ${userName}!`;
+//   }
+//   const saved = localStorage.getItem("messages");
+//   messages = saved ? JSON.parse(saved) : [];
+//   showMessages();
+// });
+// linje 84-94 er ændret til nedenstående
+// load: hent og vis
 window.addEventListener("load", () => {
-    const userName = prompt("What is your name?");
-    if (userName) {
-        statusEl.textContent = `Hello ${userName}!`;
+    const savedUser = localStorage.getItem("duckUser");
+    if (savedUser && statusEl) {
+        const user = JSON.parse(savedUser);
+        statusEl.textContent = `Hello ${user.name}!`;
+    }
+    else if (statusEl) {
+        const userName = prompt("What is your name?");
+        if (userName) {
+            statusEl.textContent = `Hello ${userName}!`;
+        }
     }
     const saved = localStorage.getItem("messages");
     messages = saved ? JSON.parse(saved) : [];
@@ -102,35 +122,39 @@ window.addEventListener("load", () => {
 // }
 //////////////// EXERCISE 2 – MESSAGE TIMESTAMP //////////////////
 // linje 98-132 er ændret til nedenstående
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const msg = textarea.value.trim();
-    if (!msg) {
-        statusEl.textContent = "❌ You forgot to write me something first ❌";
-        statusEl.style.color = "#ff4d4d"; // error
-        outbox.style.display = "none";
-        return;
-    }
-    const now = new Date();
-    const day = String(now.getDate()).padStart(2, "0");
-    const month = String(now.getMonth() + 1).padStart(2, "0");
-    const year = now.getFullYear();
-    const hours = String(now.getHours()).padStart(2, "0");
-    const minutes = String(now.getMinutes()).padStart(2, "0");
-    const timestamp = `${day}/${month}/${year}, ${hours}:${minutes}`;
-    const fullMessage = `${timestamp} - ${msg}`;
-    statusEl.textContent = "Your message has been sent to Mr. Duck 🦆 Quaaack!";
-    statusEl.style.color = "#22c55e"; // success
-    sentText.textContent = fullMessage;
-    outbox.style.display = "block";
-    // GEM:
-    messages.push(fullMessage);
-    localStorage.setItem("messages", JSON.stringify(messages));
-    // VIS:
-    showMessages();
-    textarea.value = "";
-});
+if (form && textarea && statusEl && outbox && sentText) {
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const msg = textarea.value.trim();
+        if (!msg) {
+            statusEl.textContent = "❌ You forgot to write me something first ❌";
+            statusEl.style.color = "#ff4d4d"; // error
+            outbox.style.display = "none";
+            return;
+        }
+        const now = new Date();
+        const day = String(now.getDate()).padStart(2, "0");
+        const month = String(now.getMonth() + 1).padStart(2, "0");
+        const year = now.getFullYear();
+        const hours = String(now.getHours()).padStart(2, "0");
+        const minutes = String(now.getMinutes()).padStart(2, "0");
+        const timestamp = `${day}/${month}/${year}, ${hours}:${minutes}`;
+        const fullMessage = `${timestamp} - ${msg}`;
+        statusEl.textContent = "Your message has been sent to Mr. Duck 🦆 Quaaack!";
+        statusEl.style.color = "#22c55e"; // success
+        sentText.textContent = fullMessage;
+        outbox.style.display = "block";
+        // GEM:
+        messages.push(fullMessage);
+        localStorage.setItem("messages", JSON.stringify(messages));
+        // VIS:
+        showMessages();
+        textarea.value = "";
+    });
+}
 function showMessages() {
+    if (!list)
+        return;
     list.innerHTML = "";
     messages.forEach((m) => {
         const li = document.createElement("li");
@@ -262,4 +286,33 @@ function setupDuckDropdown(dropdownEl) {
 window.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".duck-dropdown").forEach(setupDuckDropdown);
 });
+// ////////// KUN for USER.HTML //////////////////////
+const userForm = document.getElementById("userForm");
+const userNameInput = document.getElementById("userName");
+const userEmailInput = document.getElementById("userEmail");
+const userNameError = document.getElementById("userNameError");
+const userEmailError = document.getElementById("userEmailError");
+const userStatus = document.getElementById("userStatus");
+if (userForm && userNameInput && userEmailInput && userNameError && userEmailError && userStatus) {
+    userForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const userName = userNameInput.value.trim();
+        const userEmail = userEmailInput.value.trim();
+        userNameError.textContent = "";
+        userEmailError.textContent = "";
+        userStatus.textContent = "";
+        if (userName === "") {
+            userNameError.textContent = "Please write your name";
+            return;
+        }
+        if (userEmail === "") {
+            userEmailError.textContent = "Please write your email";
+            return;
+        }
+        localStorage.setItem("duckUser", JSON.stringify({ name: userName, email: userEmail }));
+        userStatus.textContent = "User created";
+        userStatus.style.color = "#22c55e";
+        userForm.reset();
+    });
+}
 //# sourceMappingURL=ducks.js.map

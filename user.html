@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create User | Mr.Duck</title>
+    <script src="dist/ducks.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="duck-page">
+        <header>
+            <a id="logo_box" href="/index.html" aria-label="Home">
+                <img id="logo_img" src="/src/images/duck_ck.png" alt="Home" width="48" height="48">
+            </a>
+
+            <h1>Create user</h1>
+
+            <a class="user-btn" href="/duck.html">Back to Duck</a>
+        </header>
+
+        <main>
+            <div class="card user-card">
+                <form id="userForm">
+                    <label for="userName">Name</label>
+                    <input id="userName" name="userName" type="text" placeholder="Write your name">
+                    <p id="userNameError" class="field-error"></p>
+
+                    <label for="userEmail">Email</label>
+                    <input id="userEmail" name="userEmail" type="email" placeholder="Write your email">
+                    <p id="userEmailError" class="field-error"></p>
+
+                    <button class="btn1" type="submit">Create user</button>
+                    <p id="userStatus" class="status" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Charlotte Koudal Webdesign EK</p>
+    </footer>
+</body>
+</html>

@@ -4,6 +4,7 @@
 const logo_box: HTMLElement | null = document.getElementById("logo_box");
 const logo_img: HTMLImageElement | null = document.getElementById("logo_img") as HTMLImageElement | null;
 
+if (logo_box && logo_img) { // tilføjet kør hover-koden kun hvis begge elementer findes
 logo_box!.addEventListener("mouseover", function (event: MouseEvent) {
   console.log(event);
   logo_img!.src = "/src/images/easterchicken.png";
@@ -12,6 +13,7 @@ logo_box!.addEventListener("mouseover", function (event: MouseEvent) {
 logo_box!.addEventListener("mouseout", function () {
   logo_img!.src = "/src/images/duck_ck.png";
 });
+}
 
 // //WRITTEN MESSAGE IN THE CONSOLE WHEN HOVERING OVER LOGO
 // Har udkommenteret denne da man ikke kan loade to scripts der begge deklarerer logo_box globalt i samme scope
@@ -59,12 +61,12 @@ logo_box!.addEventListener("mouseout", function () {
 
 // //SAVE ALL MESSAGES (array + localStorage + DOM)
 // // TJEK MED localStorage.getItem("messages") ELLER console.log(messages); I INSPECT -> CONCOLE
-const form = document.getElementById("duckForm") as HTMLFormElement;
-const textarea = document.getElementById("message") as HTMLTextAreaElement;
-const statusEl = document.getElementById("status") as HTMLElement;
-const outbox = document.getElementById("outbox") as HTMLElement;
-const sentText = document.getElementById("sentText") as HTMLElement;
-const list = document.getElementById("savedMessages") as HTMLUListElement;
+const form = document.getElementById("duckForm") as HTMLFormElement | null;
+const textarea = document.getElementById("message") as HTMLTextAreaElement | null;
+const statusEl = document.getElementById("status") as HTMLElement | null;
+const outbox = document.getElementById("outbox") as HTMLElement | null;
+const sentText = document.getElementById("sentText") as HTMLElement | null;
+const list = document.getElementById("savedMessages") as HTMLUListElement | null;
 
 let messages: string[] = []; //Dette gør at besked-systemet virker
 
@@ -79,11 +81,32 @@ let messages: string[] = []; //Dette gør at besked-systemet virker
 // linje 72-77 er ændret til nedenstående
 
 // load: hent og vis
-window.addEventListener("load", () => {
-  const userName = prompt("What is your name?");
+// window.addEventListener("load", () => {
+//   const userName = prompt("What is your name?");
 
-  if (userName) {
-    statusEl.textContent = `Hello ${userName}!`;
+//   if (userName) {
+//     statusEl.textContent = `Hello ${userName}!`;
+//   }
+
+//   const saved = localStorage.getItem("messages");
+//   messages = saved ? JSON.parse(saved) : [];
+//   showMessages();
+// });
+
+// linje 84-94 er ændret til nedenstående
+// load: hent og vis
+window.addEventListener("load", () => {
+  const savedUser = localStorage.getItem("duckUser");
+
+  if (savedUser && statusEl) {
+    const user = JSON.parse(savedUser);
+    statusEl.textContent = `Hello ${user.name}!`;
+  } else if (statusEl) {
+    const userName = prompt("What is your name?");
+
+    if (userName) {
+      statusEl.textContent = `Hello ${userName}!`;
+    }
   }
 
   const saved = localStorage.getItem("messages");
@@ -131,6 +154,7 @@ window.addEventListener("load", () => {
 
 //////////////// EXERCISE 2 – MESSAGE TIMESTAMP //////////////////
 // linje 98-132 er ændret til nedenstående
+if (form && textarea && statusEl && outbox && sentText) {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -167,7 +191,11 @@ form.addEventListener("submit", (e) => {
 
   textarea.value = "";
 });
+}
+
 function showMessages() {
+  if (!list) return;
+
   list.innerHTML = "";
   messages.forEach((m) => {
     const li = document.createElement("li");
@@ -327,3 +355,41 @@ function setupDuckDropdown(dropdownEl: HTMLElement): void {
 window.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll<HTMLElement>(".duck-dropdown").forEach(setupDuckDropdown);
 });
+
+// ////////// KUN for USER.HTML //////////////////////
+const userForm = document.getElementById("userForm") as HTMLFormElement | null;
+const userNameInput = document.getElementById("userName") as HTMLInputElement | null;
+const userEmailInput = document.getElementById("userEmail") as HTMLInputElement | null;
+const userNameError = document.getElementById("userNameError") as HTMLElement | null;
+const userEmailError = document.getElementById("userEmailError") as HTMLElement | null;
+const userStatus = document.getElementById("userStatus") as HTMLElement | null;
+
+if (userForm && userNameInput && userEmailInput && userNameError && userEmailError && userStatus) {
+  userForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const userName = userNameInput.value.trim();
+    const userEmail = userEmailInput.value.trim();
+
+    userNameError.textContent = "";
+    userEmailError.textContent = "";
+    userStatus.textContent = "";
+
+    if (userName === "") {
+      userNameError.textContent = "Please write your name";
+      return;
+    }
+
+    if (userEmail === "") {
+      userEmailError.textContent = "Please write your email";
+      return;
+    }
+
+    localStorage.setItem("duckUser", JSON.stringify({ name: userName, email: userEmail }));
+
+    userStatus.textContent = "User created";
+    userStatus.style.color = "#22c55e";
+
+    userForm.reset();
+  });
+}

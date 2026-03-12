@@ -302,3 +302,53 @@ margin: 60px 0px 0px 40px ;
 #southAmericaList li p {
   margin: 0;
 }
+
+/* -------- KUN for USER.HTML -------- */
+.user-btn {
+  margin-left: auto;
+  text-decoration: none;
+  background: #04aa6d;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.user-btn:hover {
+  color: black;
+}
+
+.user-card {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+#userForm input {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 8px;
+  margin-bottom: 6px;
+  padding: 12px;
+  border: 2px solid #648484;
+  border-radius: 10px;
+  background: #28292b;
+  color: rgb(246, 246, 246);
+  font: inherit;
+}
+
+#userForm input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.field-error {
+  min-height: 20px;
+  margin: 0 0 12px 0;
+  color: #ff6b6b;
+  font-size: 14px;
+}
+
+.input-error {
+  border-color: #ff4d4d !important;
+}
