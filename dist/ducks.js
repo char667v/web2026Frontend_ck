@@ -60,6 +60,7 @@ let messages = []; //Dette gør at besked-systemet virker
 //   showMessages();
 // });
 //////////////// EXERCISE 1 – MR. DUCK GREETING //////////////////
+// linje 72-77 er ændret til nedenstående
 // load: hent og vis
 window.addEventListener("load", () => {
     const userName = prompt("What is your name?");
@@ -71,6 +72,36 @@ window.addEventListener("load", () => {
     showMessages();
 });
 /////////////// FORM //////////////
+// form.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   const msg = textarea.value.trim();
+//   if (!msg) {
+//     statusEl.textContent = "❌ You forgot to write me something first ❌";
+//     statusEl.style.color = "#ff4d4d"; // error
+//     outbox.style.display = "none";
+//     return;
+//   }
+//   statusEl.textContent = "Your message has been sent to Mr. Duck 🦆 Quaaack!";
+//   statusEl.style.color = "#22c55e"; // success
+//   sentText.textContent = msg;
+//   outbox.style.display = "block";
+//   // GEM:
+//   messages.push(msg);
+//   localStorage.setItem("messages", JSON.stringify(messages));
+//   // VIS:
+//   showMessages();
+//   textarea.value = "";
+// });
+// function showMessages() {
+//   list.innerHTML = "";
+//   messages.forEach((m) => {
+//     const li = document.createElement("li");
+//     li.textContent = m;
+//     list.appendChild(li);
+//   });
+// }
+//////////////// EXERCISE 2 – MESSAGE TIMESTAMP //////////////////
+// linje 98-132 er ændret til nedenstående
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     const msg = textarea.value.trim();
@@ -80,12 +111,20 @@ form.addEventListener("submit", (e) => {
         outbox.style.display = "none";
         return;
     }
+    const now = new Date();
+    const day = String(now.getDate()).padStart(2, "0");
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const year = now.getFullYear();
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+    const timestamp = `${day}/${month}/${year}, ${hours}:${minutes}`;
+    const fullMessage = `${timestamp} - ${msg}`;
     statusEl.textContent = "Your message has been sent to Mr. Duck 🦆 Quaaack!";
     statusEl.style.color = "#22c55e"; // success
-    sentText.textContent = msg;
+    sentText.textContent = fullMessage;
     outbox.style.display = "block";
     // GEM:
-    messages.push(msg);
+    messages.push(fullMessage);
     localStorage.setItem("messages", JSON.stringify(messages));
     // VIS:
     showMessages();
@@ -96,6 +135,7 @@ function showMessages() {
     messages.forEach((m) => {
         const li = document.createElement("li");
         li.textContent = m;
+        li.title = m;
         list.appendChild(li);
     });
 }
