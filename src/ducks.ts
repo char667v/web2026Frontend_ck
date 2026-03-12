@@ -393,3 +393,30 @@ if (userForm && userNameInput && userEmailInput && userNameError && userEmailErr
     userForm.reset();
   });
 }
+// ////////// JOKE //////////////////////
+const btnJoke = document.getElementById("btnJoke") as HTMLButtonElement | null;
+const jokeText = document.getElementById("jokeText") as HTMLElement | null;
+
+if (btnJoke && jokeText) {
+  btnJoke.addEventListener("click", async function () {
+    const url = "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist";
+
+    const response = await fetch(url, {
+      method: "GET"
+    });
+
+    if (!response.ok) {
+      jokeText.textContent = "Something went wrong";
+      return;
+    }
+
+    const data = await response.json();
+    console.log(data);
+
+    if (data.type === "single") {
+      jokeText.textContent = data.joke;
+    } else {
+      jokeText.textContent = data.setup + " - " + data.delivery;
+    }
+  });
+}
