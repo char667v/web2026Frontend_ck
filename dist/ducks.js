@@ -293,6 +293,9 @@ const userEmailInput = document.getElementById("userEmail");
 const userNameError = document.getElementById("userNameError");
 const userEmailError = document.getElementById("userEmailError");
 const userStatus = document.getElementById("userStatus");
+function validateEkEmail(email) {
+    return email.endsWith("@ek.dk");
+}
 if (userForm && userNameInput && userEmailInput && userNameError && userEmailError && userStatus) {
     userForm.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -305,8 +308,12 @@ if (userForm && userNameInput && userEmailInput && userNameError && userEmailErr
             userNameError.textContent = "Please write your name";
             return;
         }
-        if (userEmail === "") {
-            userEmailError.textContent = "Please write your email";
+        // if (userEmail === "") {
+        //   userEmailError.textContent = "Please write your email";
+        //   return;
+        // }
+        if (!validateEkEmail(userEmail)) {
+            userEmailError.textContent = "Email must end with @ek.dk";
             return;
         }
         localStorage.setItem("duckUser", JSON.stringify({ name: userName, email: userEmail }));
