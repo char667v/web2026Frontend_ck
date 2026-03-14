@@ -1,5 +1,5 @@
 .body {
-margin: 60px 0px 0px 40px ;
+  margin: 60px 0px 0px 40px;
 }
 .coloredBox {
   background-color: blue;
@@ -9,22 +9,25 @@ margin: 60px 0px 0px 40px ;
   color: #ecebe9;
   font-weight: bolder;
 }
-#btnJoke{
+#btnJoke {
   margin: 20px 0px 0px 20px;
-  background-color:lightslategrey;
+  background-color: lightslategrey;
 }
-#jokeText{
+#jokeText {
   background-color: #bdcff5;
-  Padding: 8px;
+  padding: 8px;
   border-radius: 6px;
   width: fit-content;
   margin: 4px 0px 0px 20px;
 }
-#btnHover{
+#btnHover {
   margin: 4px 0px 0px 20px;
 }
 .hidden {
   display: none;
+}
+.visible {
+  display: block;
 }
 .boxStyle {
   width: fit-content; /* følger tekstens bredde */
