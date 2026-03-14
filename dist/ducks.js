@@ -1,8 +1,10 @@
 ////////////////// RUBBER DUCK ASSIGNMENT /////////////////////////////
+//////////// KUN for DUCK.HTML //////////////////////
 //IMAGE SWAP VIRKER
 const logo_box = document.getElementById("logo_box");
 const logo_img = document.getElementById("logo_img");
-if (logo_box && logo_img) { // tilføjet kør hover-koden kun hvis begge elementer findes
+if (logo_box && logo_img) {
+    // tilføjet kør hover-koden kun hvis begge elementer findes
     logo_box.addEventListener("mouseover", function (event) {
         console.log(event);
         logo_img.src = "/src/images/easterchicken.png";
@@ -11,42 +13,6 @@ if (logo_box && logo_img) { // tilføjet kør hover-koden kun hvis begge element
         logo_img.src = "/src/images/duck_ck.png";
     });
 }
-// //WRITTEN MESSAGE IN THE CONSOLE WHEN HOVERING OVER LOGO
-// Har udkommenteret denne da man ikke kan loade to scripts der begge deklarerer logo_box globalt i samme scope
-// const logo_box: HTMLElement | null = document.getElementById("logo_box");
-// const logo_img: HTMLImageElement | null = document.getElementById("logo_img") as HTMLImageElement | null;
-// if (logo_box && logo_img) {
-//   logo_box.addEventListener("mouseover", function (event: MouseEvent) {
-//     console.log("🦆 Mr. Duck says: Quack! Explain your problem to me…");
-//     console.log("Hover event:", event);
-//     logo_img.src = "/src/images/easterchicken.png";
-//   });
-//   logo_box.addEventListener("mouseout", function () {
-//     console.log("🦆 Mr. Duck says: Come back if you get stuck!");
-//     logo_img.src = "/src/images/batman_rubber_duck.png";
-//   });
-// }
-// //MESSGAE FORM VIRKER
-// // const form = document.getElementById("duckForm");
-// // const textarea = document.getElementById("message");
-// // const statusEl = document.getElementById("status");
-// // const sentText = document.getElementById("sentText");
-// // form.addEventListener("submit", (e) => {
-// //   e.preventDefault();
-// //   const msg = textarea.value.trim();
-// //   if (!msg) {
-// //     statusEl.textContent = "Please write something first 😊";
-// //     outbox.style.display = "none";
-// //     return;
-// //   }
-// //   // "Send" (front-end only)
-// //   statusEl.textContent = "Quack! Message sent to Mr. Duck ✅";
-// //   // sentText.textContent = msg;
-// //   // outbox.style.display = "block";
-// //   // textarea.value = "";
-// //   // textarea.focus();
-// // });
-// //SAVE ALL MESSAGES (array + localStorage + DOM)
 // // TJEK MED localStorage.getItem("messages") ELLER console.log(messages); I INSPECT -> CONCOLE
 const form = document.getElementById("duckForm");
 const textarea = document.getElementById("message");
@@ -56,25 +22,7 @@ const sentText = document.getElementById("sentText");
 const list = document.getElementById("savedMessages");
 let messages = []; //Dette gør at besked-systemet virker
 // load: hent og vis
-// window.addEventListener("load", () => {
-//   const saved = localStorage.getItem("messages");
-//   messages = saved ? JSON.parse(saved) : [];
-//   showMessages();
-// });
-//////////////// EXERCISE 1 – MR. DUCK GREETING //////////////////
-// linje 72-77 er ændret til nedenstående
-// load: hent og vis
-// window.addEventListener("load", () => {
-//   const userName = prompt("What is your name?");
-//   if (userName) {
-//     statusEl.textContent = `Hello ${userName}!`;
-//   }
-//   const saved = localStorage.getItem("messages");
-//   messages = saved ? JSON.parse(saved) : [];
-//   showMessages();
-// });
-// linje 84-94 er ændret til nedenstående
-// load: hent og vis
+//////////////// EXERCISE 3 – Repetition exercise //////////////////
 window.addEventListener("load", () => {
     const savedUser = localStorage.getItem("duckUser");
     if (savedUser && statusEl) {
@@ -91,37 +39,8 @@ window.addEventListener("load", () => {
     messages = saved ? JSON.parse(saved) : [];
     showMessages();
 });
-/////////////// FORM //////////////
-// form.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   const msg = textarea.value.trim();
-//   if (!msg) {
-//     statusEl.textContent = "❌ You forgot to write me something first ❌";
-//     statusEl.style.color = "#ff4d4d"; // error
-//     outbox.style.display = "none";
-//     return;
-//   }
-//   statusEl.textContent = "Your message has been sent to Mr. Duck 🦆 Quaaack!";
-//   statusEl.style.color = "#22c55e"; // success
-//   sentText.textContent = msg;
-//   outbox.style.display = "block";
-//   // GEM:
-//   messages.push(msg);
-//   localStorage.setItem("messages", JSON.stringify(messages));
-//   // VIS:
-//   showMessages();
-//   textarea.value = "";
-// });
-// function showMessages() {
-//   list.innerHTML = "";
-//   messages.forEach((m) => {
-//     const li = document.createElement("li");
-//     li.textContent = m;
-//     list.appendChild(li);
-//   });
-// }
 //////////////// EXERCISE 2 – MESSAGE TIMESTAMP //////////////////
-// linje 98-132 er ændret til nedenstående
+// FORM
 if (form && textarea && statusEl && outbox && sentText) {
     form.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -163,130 +82,95 @@ function showMessages() {
         list.appendChild(li);
     });
 }
-// /////////////// DROPDOWN MENU //////////////
-// //DROPDOWN DUCK OPTION
-// //1) Tegneserie-ænder
-// // const cartoonSelect = document.getElementById("cartoonSelect") as HTMLSelectElement | null;
-// // const cartoonList = document.getElementById("cartoonList") as HTMLUListElement | null;
-// // if (cartoonSelect && cartoonList) {
-// //   cartoonSelect.addEventListener("change", () => {
-// //     const value = cartoonSelect.value;
-// //     if (value === "") return;
-// //     const existing = cartoonList.querySelector(`li[data-value="${value}"]`);
-// //     if (existing) existing.remove();
-// //     else {
-// //       const li = document.createElement("li");
-// //       li.textContent = value;
-// //       li.setAttribute("data-value", value);
-// //       cartoonList.appendChild(li);
-// //     }
-// //     cartoonSelect.value = "";
-// //   });
-// // }
-// // // 2) Danske andearter
-// // const speciesSelect = document.getElementById("speciesSelect") as HTMLSelectElement | null;
-// // const speciesList = document.getElementById("speciesList") as HTMLUListElement | null;
-// // if (speciesSelect && speciesList) {
-// //   speciesSelect.addEventListener("change", () => {
-// //     const value = speciesSelect.value;
-// //     if (value === "") return;
-// //     const existing = speciesList.querySelector(`li[data-value="${value}"]`);
-// //     if (existing) existing.remove();
-// //     else {
-// //       const li = document.createElement("li");
-// //       li.textContent = value;
-// //       li.setAttribute("data-value", value);
-// //       speciesList.appendChild(li);
-// //     }
-// //     speciesSelect.value = "";
-// //   });
-// // }
-// // // 3) Sydamerika-ænder
-// // const southAmericaSelect = document.getElementById("southAmericaSelect") as HTMLSelectElement | null;
-// // const southAmericaList = document.getElementById("southAmericaList") as HTMLUListElement | null;
-// // if (southAmericaSelect && southAmericaList) {
-// //   southAmericaSelect.addEventListener("change", () => {
-// //     const value = southAmericaSelect.value;
-// //     if (value === "") return;
-// //     const existing = southAmericaList.querySelector(`li[data-value="${value}"]`);
-// //     if (existing) existing.remove();
-// //     else {
-// //       const li = document.createElement("li");
-// //       li.textContent = value;
-// //       li.setAttribute("data-value", value);
-// //       southAmericaList.appendChild(li);
-// //     }
-// //     southAmericaSelect.value = "";
-// //   });
-// // }
-// ////////// Virker kun for DUCK_TEST.HTML //////////////////////
-// // ///////// DROPDOWN DUCK OPTION CUSTOM //////////////
-function setupDuckDropdown(dropdownEl) {
-    const button = dropdownEl.querySelector(".duck-trigger");
-    const menu = dropdownEl.querySelector(".duck-menu");
-    const targetId = dropdownEl.dataset.target;
-    if (!button || !menu || !targetId)
-        return;
-    const targetList = document.getElementById(targetId);
-    if (!targetList)
-        return;
-    const placeholderP = button.querySelector("p");
-    const placeholderText = placeholderP?.textContent ?? "-- vælg mellem --";
-    // Åbn/luk (og luk de andre)
-    button.addEventListener("click", (e) => {
-        e.preventDefault();
-        document.querySelectorAll(".duck-dropdown.open").forEach((d) => {
-            if (d !== dropdownEl)
-                d.classList.remove("open");
-        });
-        dropdownEl.classList.toggle("open");
-    });
-    // Klik udenfor lukker
-    document.addEventListener("click", (e) => {
-        const target = e.target;
-        if (target && !dropdownEl.contains(target))
-            dropdownEl.classList.remove("open");
-    });
-    // Klik på option (event delegation)
-    menu.addEventListener("click", (e) => {
-        const t = e.target;
-        const opt = t?.closest(".duck-option");
-        if (!opt)
+// /////////////// DROPDOWN DUCK OPTION ///////////////////
+// 1) Tegneserie-ænder
+const cartoonSelect = document.getElementById("cartoonSelect");
+const cartoonList = document.getElementById("cartoonList");
+if (cartoonSelect && cartoonList) {
+    cartoonSelect.addEventListener("change", () => {
+        const value = cartoonSelect.value;
+        if (value === "")
             return;
-        const value = opt.dataset.value ?? "";
-        if (!value)
-            return;
-        const avatar = opt.dataset.avatar ?? "";
-        // find eksisterende (uden querySelector-escaping)
-        const existing = Array.from(targetList.children).find((li) => {
-            return li.dataset.value === value;
-        });
-        if (existing) {
+        const existing = cartoonList.querySelector(`li[data-value="${value}"]`);
+        if (existing)
             existing.remove();
-        }
         else {
             const li = document.createElement("li");
-            li.dataset.value = value;
-            if (avatar) {
-                const img = document.createElement("img");
-                img.src = avatar;
-                img.alt = "";
-                li.appendChild(img);
-            }
-            const p = document.createElement("p");
-            p.textContent = value;
-            li.appendChild(p);
-            targetList.appendChild(li);
+            li.textContent = value;
+            li.setAttribute("data-value", value);
+            cartoonList.appendChild(li);
         }
-        dropdownEl.classList.remove("open");
-        if (placeholderP)
-            placeholderP.textContent = placeholderText;
+        cartoonSelect.value = "";
     });
 }
-window.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".duck-dropdown").forEach(setupDuckDropdown);
-});
-// ////////// KUN for USER.HTML //////////////////////
+// 2) Danske andearter
+const speciesSelect = document.getElementById("speciesSelect");
+const speciesList = document.getElementById("speciesList");
+if (speciesSelect && speciesList) {
+    speciesSelect.addEventListener("change", () => {
+        const value = speciesSelect.value;
+        if (value === "")
+            return;
+        const existing = speciesList.querySelector(`li[data-value="${value}"]`);
+        if (existing)
+            existing.remove();
+        else {
+            const li = document.createElement("li");
+            li.textContent = value;
+            li.setAttribute("data-value", value);
+            speciesList.appendChild(li);
+        }
+        speciesSelect.value = "";
+    });
+}
+// 3) Sydamerika-ænder
+const southAmericaSelect = document.getElementById("southAmericaSelect");
+const southAmericaList = document.getElementById("southAmericaList");
+if (southAmericaSelect && southAmericaList) {
+    southAmericaSelect.addEventListener("change", () => {
+        const value = southAmericaSelect.value;
+        if (value === "")
+            return;
+        const existing = southAmericaList.querySelector(`li[data-value="${value}"]`);
+        if (existing)
+            existing.remove();
+        else {
+            const li = document.createElement("li");
+            li.textContent = value;
+            li.setAttribute("data-value", value);
+            southAmericaList.appendChild(li);
+        }
+        southAmericaSelect.value = "";
+    });
+}
+//////////////// EXERCISE 3 – ASYNC: EXERCISE //////////////////
+//////////// KUN i DUCK.HTML //////////////////////
+// JOKE 
+const btnJoke = document.getElementById("btnJoke");
+const jokeText = document.getElementById("jokeText");
+if (btnJoke && jokeText) {
+    btnJoke.addEventListener("click", async function () {
+        const url = "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist";
+        const response = await fetch(url, { method: "GET" });
+        if (!response.ok) {
+            jokeText.textContent = "Something went wrong";
+            return;
+        }
+        const data = await response.json();
+        console.log(data);
+        setTimeout(() => {
+            if (data.type === "single") {
+                jokeText.textContent = data.joke;
+            }
+            else {
+                jokeText.textContent = data.setup + " - " + data.delivery;
+            }
+        }, 1500); // delay på Mr. Ducks jokes
+    });
+}
+//////////////// EXERCISE 3 – FORMS: EXERCISE //////////////////
+//////////// KUN for USER.HTML //////////////////////
+// User form
 const userForm = document.getElementById("userForm");
 const userNameInput = document.getElementById("userName");
 const userEmailInput = document.getElementById("userEmail");
@@ -308,10 +192,6 @@ if (userForm && userNameInput && userEmailInput && userNameError && userEmailErr
             userNameError.textContent = "Please write your name";
             return;
         }
-        // if (userEmail === "") {
-        //   userEmailError.textContent = "Please write your email";
-        //   return;
-        // }
         if (!validateEkEmail(userEmail)) {
             userEmailError.textContent = "Email must end with @ek.dk";
             return;
@@ -320,29 +200,6 @@ if (userForm && userNameInput && userEmailInput && userNameError && userEmailErr
         userStatus.textContent = "User created";
         userStatus.style.color = "#22c55e";
         userForm.reset();
-    });
-}
-// ////////// JOKE //////////////////////
-const btnJoke = document.getElementById("btnJoke");
-const jokeText = document.getElementById("jokeText");
-if (btnJoke && jokeText) {
-    btnJoke.addEventListener("click", async function () {
-        const url = "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist";
-        const response = await fetch(url, {
-            method: "GET"
-        });
-        if (!response.ok) {
-            jokeText.textContent = "Something went wrong";
-            return;
-        }
-        const data = await response.json();
-        console.log(data);
-        if (data.type === "single") {
-            jokeText.textContent = data.joke;
-        }
-        else {
-            jokeText.textContent = data.setup + " - " + data.delivery;
-        }
     });
 }
 //# sourceMappingURL=ducks.js.map

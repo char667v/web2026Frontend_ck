@@ -160,13 +160,13 @@ window.addEventListener("load", async () => {
 
   users.map((user) => {
     const template: any = document.getElementById("template");
-    const kopi = template.content.cloneNode(true);
+    const clone = template.content.cloneNode(true);
 
-    kopi.getElementById("name").textContent = user.firstname + " " + user.lastname;
-    kopi.getElementById("email").textContent = user.email + " " + user.email;
-    kopi.getElementById("password").textContent = user.password;
+    clone.getElementById("name").textContent = user.firstname + " " + user.lastname;
+    clone.getElementById("email").textContent = user.email + " " + user.email;
+    clone.getElementById("password").textContent = user.password;
 
-    document.getElementById("userContainer").appendChild(kopi);
+    document.getElementById("userContainer").appendChild(clone);
   });
 
   // let name = prompt("What is your name?");

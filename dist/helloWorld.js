@@ -60,7 +60,7 @@ console.log(numbers);
 // console.log(people);
 // const person2 = people[0]; // gets the first person in the peoples array
 // console.log(person2);
-////// EXERCISES: FUNCTIONS & OBJECTS //////
+////// 01 EXERCISES: FUNCTIONS & OBJECTS //////
 function printName(firstname, lastname) {
     console.log(firstname + " " + lastname);
 }
@@ -74,7 +74,7 @@ function calculateDistance(speed, time) {
 }
 const distance = calculateDistance(60, 2);
 console.log("You have travelled " + distance + " km");
-/////////////// EXERCISE: CAR ///////////////
+/////////////// 01 EXERCISE: CAR ///////////////
 class Car {
     // creates an object
     constructor(make, model, series, year, color) {
@@ -108,7 +108,7 @@ console.log(car1.stop());
 console.log(car2.getCarInfo());
 console.log(car2.start());
 console.log(car2.stop());
-/////////////// EXERCISE: ARRAYS ///////////////
+/////////////// 01 EXERCISE: ARRAYS ///////////////
 // Create an array with 5 names
 let names = ["Anna", "Peter", "Maria", "Jonas", "Sofie"];
 // Print out the first element (name)
@@ -141,4 +141,28 @@ people.push(person2);
 console.log(people);
 // Log the first object's email in a separate log
 console.log(people[0].email);
+/////////////// 01 EXERCISE: ARRAYS & OBECTS ///////////////
+class Student {
+    constructor(name, id) {
+        this.name = name;
+        this.id = id;
+        this.grades = [];
+    }
+    addGrade(grade) {
+        this.grades.push(grade);
+    }
+    updateStudentName(newName) {
+        this.name = newName;
+    }
+}
+// Create a student object
+const student1 = new Student("Anna", 1);
+// Add a few grades to the student
+student1.addGrade(7);
+student1.addGrade(10);
+student1.addGrade(12);
+// Update the student's name
+student1.updateStudentName("Anna Jensen");
+// Print the updated object
+console.log(student1);
 //# sourceMappingURL=helloWorld.js.map
