@@ -1,17 +1,21 @@
-.body {
-  margin: 60px 0px 0px 40px;
+body {
+    font-family: system-ui, -apple-system, sans-serif;
 }
-.coloredBox {
-  background-color: blue;
-  width: 100px;
-  height: 100px;
-  margin: 20px;
-  color: #ecebe9;
-  font-weight: bolder;
+.body {
+  margin: 80px 280px;
+}
+.line {
+    border: none;
+    border-top: 4px solid #046cf4;
+    max-width: 1260px;
+    margin: 60px 0;
 }
 #btnJoke {
   margin: 20px 0px 0px 20px;
-  background-color: lightslategrey;
+  padding: 10px;
+  border-radius: 4%;
+  border: none;
+  background-color: rgb(85, 123, 162);
 }
 #jokeText {
   background-color: #bdcff5;
@@ -36,7 +40,34 @@
   border-radius: 5px;
   margin: 5px;
 }
+.coloredBox {
+  background-color: blue;
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  color: #ecebe9;
+  font-weight: bolder;
+}
 
+.overskrift{
+  font-size: 36px;
+}
+.note-title-1 strong  { color: #1a6ef5;}
+.note-title-2 strong  { color: #04aa6d; }  /* grøn */
+.note-title-3 strong  { color: #e63946; }  /* rød */
+.note-title-4 strong  { color: #f4a261; }  /* orange */
+.note-title-5 strong  { color: #9b5de5; }  /* lilla */
+.note-title-6 strong  { color: #f15bb5; }  /* pink */
+.note-title-7 strong  { color: #00bbf9; }  /* lyseblå */
+.note-title-8 strong  { color: #06d6a0; }  /* mint */
+.note-title-9 strong  { color: #fb5607; }  /* rødorange */
+.note-title-10 strong { color: #ffd166; }  /* gul */
+.note-title-11 strong { color: #118ab2; }  /* mørkeblå */
+.note-title-12 strong { color: #ef476f; }  /* lyserød */
+.note-title-13 strong { color: #26a96c; }  /* mørkegrøn */
+.note-title-14 strong { color: #7b2d8b; }  /* mørkelilla */
+
+ 
 /****************** Mr. Duck ********************/
 .duck-page header {
   display: flex;
@@ -49,6 +80,7 @@
 .duck-page header h1 {
   margin: 0;
 }
+
 /* lav en responsiv menubar */
 /* .duck-nav {
   /* Nav links in a horizontal row *
@@ -71,6 +103,7 @@
   margin-left: auto;
 } */
 /* ************************ */
+
 .duck-page main {
   max-width: 760px;
   margin: 28px auto;
@@ -252,7 +285,7 @@
   display: block;
 }
 
-/* menu items (override .picker li) */
+/* menu items (override .picker li) *
 .duck-menu .duck-option {
   margin-bottom: 0;
   background: transparent;
@@ -282,7 +315,7 @@
   color: rgb(246, 246, 246);
 }
 
-/* valgte lister: billede + tekst altid */
+/* valgte lister: billede + tekst altid *
 #cartoonList li,
 #speciesList li,
 #southAmericaList li {
@@ -306,7 +339,7 @@
   margin: 0;
 }
 
-/* -------- KUN for USER.HTML -------- */
+/* -------- KUN for USER.HTML -------- *
 .user-btn {
   margin-left: auto;
   text-decoration: none;
@@ -354,4 +387,4 @@
 
 .input-error {
   border-color: #ff4d4d !important;
-}
+} */

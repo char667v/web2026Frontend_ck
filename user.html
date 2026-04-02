@@ -4,42 +4,119 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Create User | Mr.Duck</title>
+    <title>Mr.Duck | Create User</title>
     <script src="dist/ducks.js" defer></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
 </head>
 <body>
-    <div class="duck-page">
-        <header>
-            <a id="logo_box" href="/index.html" aria-label="Home">
-                <img id="logo_img" src="/src/images/duck_ck.png" alt="Home" width="48" height="48">
-            </a>
+<div class="duck-page">
 
-            <h1>Create user</h1>
+    <header>
+        <a id="logo_box" href="/index.html" aria-label="Home">
+            <img id="logo_img" src="https://em-content.zobj.net/source/apple/391/duck_1f986.png" alt="Duck" width="48" height="48">
+        </a>
+        <h1 class="user-title">Create user</h1>
+        <a class="user-btn" href="/duck.html">Back to Duck</a>
+    </header>
 
-            <a class="user-btn" href="/duck.html">Back to Duck</a>
-        </header>
+    <main>
 
-        <main>
-            <div class="card user-card">
-                <form id="userForm">
-                    <label for="userName">Name</label>
-                    <input id="userName" name="userName" type="text" placeholder="Write your name">
-                    <p id="userNameError" class="field-error"></p>
+        <!--
+        =====================================================
+        USER PAGE — OPGAVER FRA PDF 03 OG PDF 04
+        =====================================================
 
-                    <label for="userEmail">Email</label>
-                    <input id="userEmail" name="userEmail" type="email" placeholder="Write your email">
-                    <p id="userEmailError" class="field-error"></p>
+        PDF 03 — Forms (side 10):
+        - <form> er semantisk korrekt HTML
+        - Lytter på enter-tasten automatisk
+        - e.preventDefault() stopper siden i at reloade
+        - Custom JS validering viser fejl direkte i UI
+        - Hvert felt har en <p class="field-error"> til fejlbeskeder
 
-                    <button class="btn1" type="submit">Create user</button>
-                    <p id="userStatus" class="status" role="status" aria-live="polite"></p>
-                </form>
-            </div>
-        </main>
-    </div>
+        PDF 04 — Authentication (side 19-22):
+        - Login sender email + password til backend via fetch POST
+        - Serveren returnerer et JWT (JSON Web Token)
+        - JWT gemmes i localStorage og sendes med i fremtidige requests
+        - Authorization: "Bearer " + token
 
-    <footer>
-        <p>&copy; 2026 Charlotte Koudal Webdesign EK</p>
-    </footer>
+        localStorage — bruges i begge:
+        - Kan kun gemme strings — brug JSON.stringify() ved gemning
+        - Hent med JSON.parse(localStorage.getItem("duckUser"))
+        - Mr. Duck hilser brugeren ved navn når siden loader
+
+        Login findes to steder i projektet:
+        - user.html — dedikeret auth side med både signup og login formular
+        - duck.html — header har "User" knap der linker til user.html
+        - I ducks.ts er signup validering lavet (navn + @ek.dk email)
+        - Login fetch til backend mangler — kræver lærerens server (PDF 04)
+
+        Vigtige begreber til eksamen:
+        - e.preventDefault()    → stop form reload
+        - .trim()               → fjern mellemrum fra input
+        - endsWith("@ek.dk")    → custom email validering
+        - JSON.stringify/parse  → konverter objekt til string og tilbage
+        - JWT                   → token der beviser brugeren er logget ind
+        - Bearer token          → sådan sendes JWT med i fetch requests
+        =====================================================
+        -->
+
+        <!-- SIGNUP — PDF 03 side 10 -->
+        <!-- Opretter bruger med navn, email og password -->
+        <!-- Validering i ducks.ts: navn må ikke være tomt, email skal slutte på @ek.dk -->
+        <!-- Ved success: gemmes i localStorage med JSON.stringify -->
+        <div class="auth-card">
+            <div class="auth-icon">👩🏻‍🦰</div>
+            <h2>Create Account</h2>
+            <p class="auth-subtitle">Fill in your details to get started.</p>
+            <form id="userForm">
+                <label for="userName">Name</label>
+                <input id="userName" name="userName" type="text" placeholder="Your name">
+                <p id="userNameError" class="field-error"></p>
+                <label for="userEmail">Email</label>
+                <input id="userEmail" name="userEmail" type="email" placeholder="name@example.com">
+                <p id="userEmailError" class="field-error"></p>
+                <label for="userPassword">Password</label>
+                <input id="userPassword" name="userPassword" type="password" placeholder="••••••••">
+                <p id="userPasswordError" class="field-error"></p>
+                <button class="btn1" type="submit">Create Account</button>
+                <p id="userStatus" class="status" role="status" aria-live="polite"></p>
+            </form>
+            <p class="auth-footer">Already have an account? <a href="/duck.html">Login</a></p>
+        </div>
+
+        <!-- LOGIN — PDF 04 side 19-22 -->
+        <!-- Logger bruger ind med email og password -->
+        <!-- Fetch POST til backend → modtager JWT → gemmes i localStorage -->
+        <!-- JWT bruges til at tilgå beskyttede endpoints -->
+        <div class="auth-card-login">
+            <div class="auth-icon">👩🏻‍🦰</div>
+            <h2>Hi, Welcome back! </h2>
+            <p class="auth-subtitle">Enter your email and password to continue.</p>
+            <form id="userForm">
+                <label for="userEmail">Email</label>
+                <input id="userEmail" name="userEmail" type="email" placeholder="name@example.com">
+                <p id="userEmailError" class="field-error"></p>
+                <label for="userPassword">Password</label>
+                <input id="userPassword" name="userPassword" type="password" placeholder="••••••••">
+                <p id="userPasswordError" class="field-error"></p>
+                <div class="remember-row">
+                    <label class="remember-label">
+                        <input type="checkbox" id="rememberMe">Remember me
+                    </label>
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+                <button class="btn1" type="submit">Login to your account</button>
+                <p id="userStatus" class="status" role="status" aria-live="polite"></p>
+            </form>
+            <p class="auth-footer">Not registered? <a href="/duck.html">Sign up</a></p>
+        </div>
+
+    </main>
+</div>
+
+<footer>
+    <p>&copy; 2026 Charlotte Koudal Webdesign EK</p>
+</footer>
+
 </body>
 </html>

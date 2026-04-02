@@ -1,15 +1,22 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////// Frontend - 01- Javascript and Typescript.pdf ///////////////
+/////////////// EXERCISE: EXERCISE: HELLOWORLDIN JS/TS, slide 9 ///////////////
 let message: string = "Hello World Mai";
 console.log(message);
 
 var name2 = "Christian"; // old js - dont do this anymore.
 let name3 = "Mai"; // variable
-const name4 = "Sophie"; // constant
-name3 = "Majfkdasjæflkdsæl";
+const name4 = "Sophie"; // constant og kan ikke ændres
+name3 = "Majfkdasjæflkdsæl"; // kan let ændres
 
-function add(a: number, b: number) {
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////// Frontend - 01- Javascript and Typescript.pdf ///////////////
+/////////////// FUNCTIONS, slide 10 //////
+// A function is a way to order and re-use pieces of code. A function can take parameters (input) and can return something(response).
+// FX function syntax
+  function add(a: number, b: number) {
   return a + b;
 }
-
 // Here I am creating a constant called result
 // It is populated with the result of calling the function add with parameters
 // 5 and 7.
@@ -24,6 +31,34 @@ console.log(result);
 console.log(result2);
 console.log(result3);
 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////// Frontend - 01- Javascript and Typescript.pdf ///////////////
+/////////////// EXERCISES: FUNCTIONS & OBJECTS, slide 14 //////
+// Createa typescript function that takes first name and last name as 2 parameters and uses console.log() to output the person's name. Check that it works and is printed correctly.
+function printName(firstname: string, lastname: string) {
+  console.log(firstname + " " + lastname);
+}
+printName("Mai", "Hansen");
+
+// Create a typescript function that calculates the area of a rectangle. The function should return the result. Test that it works.
+function calculateArea(width: number, height: number): number {
+  return width * height;
+}
+console.log(calculateArea(5, 10));
+
+// Create a typescript function that takes speed and time as 2 parameters and calculates and returns the distance. Use the function to test that it works by using the 'log' again.
+function calculateDistance(speed: number, time: number): number {
+  return speed * time;
+}
+// Print out "You have travelled *x* km" where *x* is replaced by the result from the function.
+const distance = calculateDistance(60, 2);
+console.log("You have travelled " + distance + " km");
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////// Frontend - 01- Javascript and Typescript.pdf ///////////////
+/////////////// EXERCISE: CLASS/CATS, slide 18 //////
 // Blueprint for creating cat objects
 class Cat {
   catname: string;
@@ -33,6 +68,7 @@ class Cat {
   birthDate: Date;
 
   // creates an object
+  // Create a constructor that takes 5 parameters to create an object with name, color, breed and such.
   constructor(name: string, gender: string, species: string, color: string, birthdate?: Date) {
     this.catname = name;
     this.gender = gender;
@@ -40,10 +76,12 @@ class Cat {
     this.color = color;
     this.birthDate = birthdate;
   }
+  // Create a function/method that returns the cat's data.
   getCatname() {
     // getting name
     return this.catname;
   }
+  // Create a function that can change the cat's name.
   setCatname(newName: string) {
     // setting or changing the name
     this.catname = newName;
@@ -71,33 +109,11 @@ let numbers: number[] = [1, 5, 3, 8, 3];
 numbers.push(5); //push adds a new element to the existing array.
 console.log(numbers);
 
-// let people = []; // creates an empty array
-// const person1 = { firstname: "Christian", lastname: "Kirschberg", email: "kirs@cphbusiness.dk" };
-// people.push(person1);
-// people.push({ firstname: "Mathias", lastname: "Nielsen", email: "mtnl@cphbusiness.dk" });
 
-// console.log(people);
-// const person2 = people[0]; // gets the first person in the peoples array
-// console.log(person2);
-
-////// 01 EXERCISES: FUNCTIONS & OBJECTS //////
-function printName(firstname: string, lastname: string) {
-  console.log(firstname + " " + lastname);
-}
-printName("Mai", "Hansen");
-
-function calculateArea(width: number, height: number): number {
-  return width * height;
-}
-console.log(calculateArea(5, 10));
-
-function calculateDistance(speed: number, time: number): number {
-  return speed * time;
-}
-const distance = calculateDistance(60, 2);
-console.log("You have travelled " + distance + " km");
-
-/////////////// 01 EXERCISE: CAR ///////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////// Frontend - 01- Javascript and Typescript.pdf ///////////////
+/////////////// EXERCISE: CAR, slide 19 ///////////////
+// Define the car class
 class Car {
   make: string;
   model: string;
@@ -106,6 +122,7 @@ class Car {
   color: string;
   isRunning: boolean;
 
+  // Add a constructor that accepts make, model, and year as parameters and initializes these properties.
   // creates an object
   constructor(make: string, model: string, series: string, year: number, color: string) {
     this.make = make;
@@ -115,13 +132,16 @@ class Car {
     this.color = color;
     this.isRunning = false;
   }
+  // Get car info method
   getCarInfo(): string {
     return `${this.make} ${this.model} (${this.series}) (${this.year}) (${this.color})`;
   }
+  //start method
   start(): string {
     this.isRunning = true;
     return `${this.make} ${this.model} has started.`;
   }
+  // stop method
   stop(): string {
     this.isRunning = false;
     return `${this.make} ${this.model} has stopped.`;
@@ -142,8 +162,11 @@ console.log(car2.getCarInfo());
 console.log(car2.start());
 console.log(car2.stop());
 
-/////////////// 01 EXERCISE: ARRAYS ///////////////
-// Create an array with 5 names
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////// Frontend - 01- Javascript and Typescript.pdf ///////////////
+/////////////// EXERCISE: ARRAYS slide 22 ///////////////
+// Create an array with 5 names. Print out the firstelement (name) usingconsole.log()
 let names: string[] = ["Anna", "Peter", "Maria", "Jonas", "Sofie"];
 
 // Print out the first element (name)
@@ -185,7 +208,11 @@ console.log(people);
 // Log the first object's email in a separate log
 console.log(people[0].email);
 
-/////////////// 01 EXERCISE: ARRAYS & OBECTS ///////////////
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////// Frontend - 01- Javascript and Typescript.pdf ///////////////
+/////////////// EXERCISE: ARRAYS & OBECTS, slide 23 ///////////////
+// CREATE A STUDENT CLASS
 class Student {
   name: string;
   id: number;
@@ -206,14 +233,15 @@ class Student {
   }
 }
 
+// ADD GRADES
 // Create a student object
 const student1 = new Student("Anna", 1);
-
 // Add a few grades to the student
 student1.addGrade(7);
 student1.addGrade(10);
 student1.addGrade(12);
 
+// UPDATE STUDENT NAME
 // Update the student's name
 student1.updateStudentName("Anna Jensen");
 
