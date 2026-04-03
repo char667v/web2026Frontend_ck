@@ -20,7 +20,6 @@
     <header>
         <h1>My page</h1>
     </header>
-    <hr class="line">
     <main>
         <p>This is a basic HTML5 page.</p>
 
@@ -69,150 +68,188 @@
 
         <!-- PDF 01 NOTER -->
         <section class="noter1">
-            <h2 class="overskrift"><strong>📚 PDF 01 — JavaScript & TypeScript NOTER</strong></h2>
+            <h2>📚 PDF 01 — JavaScript & TypeScript NOTER</h2>
 
             <ul>
                 <li>
                     <p class="note-title-1"><strong>SLIDE 3 — WHAT IS JAVASCRIPT?</strong></p>
-                    <p>JavaScript er et programmeringssprog til nettet. Det er en af de tre kerneteknologier sammen med
-                        HTML (struktur) og CSS (design). JavaScript kører i browseren — det udføres direkte i brugerens
-                        browser uden en server. JavaScript gør websites interaktive — brugere kan klikke knapper, åbne
-                        menuer, sende formularer. JavaScript kan kommunikere med servere via APIs — det kan hente eller
-                        sende data i baggrunden uden at reloade siden.</p>
-                    <p>Til eksamen: Hvad er JavaScript? JavaScript er et programmeringssprog der kører i browseren og
+                    <p>JavaScript er et programmeringssprog til nettet og er en af de tre kerneteknologier sammen med
+                        HTML (struktur) og CSS (design). Det kører direkte i brugerens browser uden en server og gør
+                        websites interaktive — brugere kan klikke knapper, sende formularer og hente data fra servere
+                        via APIs uden at reloade siden.</p>
+                    <p><strong>Til eksamen:</strong> Hvad er JavaScript? Et programmeringssprog der kører i browseren og
                         gør websites interaktive.</p>
                 </li>
 
                 <li>
                     <p class="note-title-2"><strong>SLIDE 4 — WHAT IS TYPESCRIPT?</strong></p>
                     <p>TypeScript er et superset af JavaScript — al JavaScript er gyldig TypeScript. TypeScript tilføjer
-                        typer til JavaScript så vi angiver hvad slags data en variabel kan indeholde (number, string,
-                        boolean). TypeScript hjælper med at fange fejl tidligt — mange fejl findes under kodning i
-                        stedet for når koden kører. TypeScript kompileres til JavaScript — browsere forstår ikke
-                        TypeScript direkte. Kommandoen tsc -p . kompilerer alle .ts filer til .js filer baseret på
-                        tsconfig.json.</p>
-                    <p>Til eksamen: Hvad er TypeScript og hvad er forskellen på TypeScript og JavaScript? TypeScript
-                        tilføjer statiske typer til JavaScript så fejl fanges tidligt. TypeScript skal kompileres til
-                        JavaScript før browseren kan køre det.</p>
+                        statiske typer så vi angiver hvad slags data en variabel kan indeholde (number, string,
+                        boolean). Det hjælper med at fange fejl tidligt under kodning i stedet for når koden kører.
+                        Browsere forstår ikke TypeScript direkte — det skal kompileres til JavaScript med kommandoen tsc
+                        -p .</p>
+                    <p><strong>Til eksamen:</strong> Hvad er forskellen på TypeScript og JavaScript? TypeScript tilføjer
+                        typer og fanger fejl tidligt. TypeScript skal kompileres til JavaScript før browseren kan køre
+                        det.</p>
                 </li>
 
                 <li>
-                    <p class="note-title-3"><strong>SLIDE 5 — BASICS IN JS/TS</strong></p>
-                    <p>De grundlæggende koncepter i JavaScript og TypeScript er: const, let, var og scopes — data typer
-                        — functions — classes og objects — arrays.</p>
+                    <p class="note-title-3"><strong>SLIDE 5-6 — BASICS & DATA TYPES</strong></p>
+                    <p>De grundlæggende koncepter er: variabler, data typer, functions, classes, objects og arrays.
+                        Grundlæggende TypeScript typer: string (tekst), number (tal), boolean (true/false), number[]
+                        (array af tal), string[] (array af strings), void (funktion returnerer ingenting), Date (dato
+                        objekt). Optional parameter markeres med ?: fx birthdate?: Date betyder parameteren ikke er
+                        påkrævet.</p>
+                    <p><strong>Til eksamen:</strong> Hvad er void? Void bruges som returtype når en funktion ikke
+                        returnerer noget. Hvad er en optional parameter? En parameter markeret med ? der ikke er
+                        påkrævet når funktionen kaldes.</p>
                 </li>
 
                 <li>
-                    <p class="note-title-4"><strong>SLIDE 6 — DATA TYPES</strong></p>
-                    <p>De grundlæggende typer i TypeScript er: string (tekst), number (tal), boolean (true/false),
-                        number[] (array af tal), string[] (array af strings), void (funktion returnerer ingenting), Date
-                        (dato objekt). Optional parameter markeres med ?: fx birthdate?: Date betyder parameteren ikke
-                        er påkrævet og kan udelades.</p>
-                    <p>Til eksamen: Hvad er en datatype? En datatype beskriver hvad slags data en variabel kan
-                        indeholde. Hvad betyder void? Void bruges som returtype når en funktion ikke returnerer noget.
-                    </p>
+                    <p class="note-title-4"><strong>SLIDE 7-8 — TRANSPILE TS TO JS / TSCONFIG</strong></p>
+                    <p>TypeScript kompileres til JavaScript med tsc -p . som læser tsconfig.json i projektets rod. tsc
+                        -w -p . lytter efter ændringer og kompilerer automatisk. tsconfig.json konfigurerer projektet:
+                        rootDir: "./src" angiver hvor .ts filer ligger og outDir: "./dist" angiver hvor kompilerede .js
+                        filer gemmes.</p>
+                    <pre><code>{
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist"
+  }
+}</code></pre>
+                    <p><strong>Til eksamen:</strong> Hvad gør tsc -p .? Den kompilerer alle TypeScript filer til
+                        JavaScript baseret på tsconfig.json.</p>
                 </li>
 
                 <li>
-                    <p class="note-title-5"><strong>SLIDE 7-8 — TRANSPILE TS TO JS / TSCONFIG</strong></p>
-                    <p>TypeScript kan ikke køres direkte i browseren — det skal kompileres til JavaScript først. npm
-                        install -g typescript installerer TypeScript globalt. tsc -p . kompilerer alle .ts filer baseret
-                        på tsconfig.json. tsc -w -p . lytter efter ændringer og kompilerer automatisk. tsconfig.json
-                        indeholder konfiguration: rootDir: "./src" angiver hvor .ts filer ligger, outDir: "./dist"
-                        angiver hvor kompilerede .js filer gemmes.</p>
-                    <p>Til eksamen: Hvad gør tsc -p .? Den kompilerer alle TypeScript filer til JavaScript baseret på
-                        tsconfig.json konfigurationen.</p>
+                    <p class="note-title-5"><strong>SLIDE 9 — VARIABLER: var, let, const</strong></p>
+                    <p>var er den gamle måde at deklarere variabler — den har function scope og kan redeclareres. Brug
+                        den aldrig i moderne kode. let bruges til variabler der kan ændres — de har block scope. const
+                        bruges til konstanter der ikke kan ændres efter oprettelse. Brug const som default og skift til
+                        let hvis du har brug for at ændre værdien.</p>
+                    <pre><code>var name2 = "Christian";   // undgå dette
+let name3 = "Mai";         // kan ændres: name3 = "Anna"
+const name4 = "Sophie";   // kan ikke ændres</code></pre>
+                    <p><strong>Til eksamen:</strong> Hvad er forskellen på var, let og const? var har function scope og
+                        kan redeclareres. let og const har block scope. const kan ikke reassignes efter oprettelse.</p>
                 </li>
 
                 <li>
-                    <p class="note-title-6"><strong>SLIDE 9 — EXERCISE: HELLO WORLD</strong></p>
-                    <p>var er den gamle måde at deklarere variabler — den har function scope og kan redeclareres, brug
-                        den aldrig i moderne kode. let bruges til variabler der kan ændres efter de er oprettet — de har
-                        block scope. const bruges til konstanter der ikke kan ændres efter de er oprettet — brug const
-                        som default og skift til let hvis du har brug for at ændre værdien.</p>
-                    <p>Eksempel: var name2 = "Christian" — undgå dette. let name3 = "Mai" — kan ændres: name3 = "Anna".
-                        const name4 = "Sophie" — kan ikke ændres efter oprettelse.</p>
-                    <p>Til eksamen: Hvad er forskellen på var, let og const? var har function scope og kan redeclareres.
-                        let og const har block scope. const kan ikke reassignes efter den er oprettet.</p>
-                </li>
+                    <p class="note-title-6"><strong>SLIDE 10 — FUNCTIONS</strong></p>
+                    <p>En funktion er genanvendelig kode der kan tage parametre som input og returnere en værdi som
+                        output. I TypeScript angiver vi typer på parametre og returværdi. Der er to syntakser:</p>
+                    <pre><code>// Declaration syntax
+function add(a: number, b: number): number {
+    return a + b;
+}
 
-                <li>
-                    <p class="note-title-7"><strong>SLIDE 10 — FUNCTIONS</strong></p>
-                    <p>En funktion er en måde at organisere og genbruge kode. En funktion kan tage parametre som input
-                        og returnere en værdi som output. I TypeScript angiver vi typer på både parametre og returværdi.
-                        To syntakser: function add(a: number, b: number): number { return a + b } eller som arrow
-                        function: const add = (a: number, b: number): number => a + b</p>
-                    <p>Til eksamen: Hvad er en funktion? En funktion er genanvendelig kode der kan tage input og
+// Arrow function syntax
+const add = (a: number, b: number): number => a + b;</code></pre>
+                    <p><strong>Til eksamen:</strong> Hvad er en funktion? Genanvendelig kode der kan tage input og
                         returnere output. Hvad betyder return? Return sender en værdi tilbage til der hvor funktionen
                         blev kaldt.</p>
                 </li>
 
                 <li>
-                    <p class="note-title-8"><strong>SLIDE 11-13 — OBJECTS</strong></p>
-                    <p>Et objekt kan oprettes uden en klasse. Objekter kan have properties og metoder. Et objekt
-                        oprettes med krøllede parenteser: let cat = { name: "Charlie", gender: "Male" }. Man kan tilføje
-                        nye properties efterfølgende: cat.color = "Brown". Nested objects betyder objekter inde i
-                        objekter: person.address = { city: "New York" } — tilgås med person.address.city. Destructuring
-                        udtrækker properties fra et objekt til separate variabler: const { catname, gender } = myCat1
-                    </p>
-                    <p>Til eksamen: Hvad er destructuring? Destructuring er en måde at udtrække properties fra et objekt
+                    <p class="note-title-7"><strong>SLIDE 11-13 — OBJECTS & DESTRUCTURING</strong></p>
+                    <p>Et objekt oprettes med krøllede parenteser og kan have properties og metoder. Man kan tilføje nye
+                        properties efterfølgende. Nested objects er objekter inde i objekter. Destructuring udtrækker
+                        properties fra et objekt til separate variabler i én linje.</p>
+                    <pre><code>let person = { firstname: "Peter", lastname: "Hansen" };
+person.age = 30;                          // tilføj property
+person.address = { city: "New York" };    // nested object
+console.log(person.address.city);
+
+const { firstname, lastname } = person;   // destructuring</code></pre>
+                    <p><strong>Til eksamen:</strong> Hvad er destructuring? En måde at udtrække properties fra et objekt
                         til separate variabler i én linje.</p>
                 </li>
 
                 <li>
-                    <p class="note-title-9"><strong>SLIDE 15-17 — CLASSES OG CONSTRUCTOR</strong></p>
-                    <p>En klasse er en blueprint/skabelon til at oprette objekter. Alle objekter oprettet fra samme
-                        klasse har samme struktur men forskellige værdier. constructor() er en speciel metode der køres
-                        automatisk når man opretter et nyt objekt med new ClassName(). Metoder er funktioner der
-                        tilhører klassen og har adgang til klassens properties via this. this refererer altid til det
-                        aktuelle objekt.</p>
-                    <p>Eksempel: class Cat { catname: string — constructor(name: string) { this.catname = name } —
-                        getCatname() { return this.catname } — setCatname(newName: string) { this.catname = newName } }
-                        — Oprette objekt: let myCat = new Cat("Whiskers", "Female", "Maine Coon", "White")</p>
-                    <p>Til eksamen: Hvad er en klasse? En klasse er en blueprint til objekter. Hvad er en constructor?
-                        En constructor er en metode der opretter et objekt baseret på klassen og køres automatisk ved
-                        new ClassName(). Hvad er this? this refererer til det aktuelle objekt.</p>
+                    <p class="note-title-8"><strong>SLIDE 15-17 — CLASSES & CONSTRUCTOR</strong></p>
+                    <p>En klasse er en blueprint til at oprette objekter med samme struktur men forskellige værdier.
+                        constructor() køres automatisk når man opretter et objekt med new ClassName(). Metoder er
+                        funktioner der tilhører klassen og har adgang til classens properties via this — this refererer
+                        altid til det aktuelle objekt.</p>
+                    <pre><code>class Cat {
+    catname: string;
+    constructor(name: string) {
+        this.catname = name;
+    }
+    getCatname(): string {
+        return this.catname;
+    }
+    setCatname(newName: string): void {
+        this.catname = newName;
+    }
+}
+let myCat = new Cat("Whiskers");
+console.log(myCat.getCatname()); // "Whiskers"</code></pre>
+                    <p><strong>Til eksamen:</strong> Hvad er en klasse? En blueprint til objekter. Hvad er en
+                        constructor? En metode der opretter et objekt og køres automatisk ved new ClassName(). Hvad er
+                        this? this refererer til det aktuelle objekt.</p>
                 </li>
 
                 <li>
-                    <p class="note-title-10"><strong>SLIDE 18 — EXERCISE: CLASS (CAT)</strong></p>
-                    <p>Opgaven var at lave en Cat klasse med name, color, breed properties, en constructor der tager 3
-                        parametre, en metode der returnerer kattens data og en metode der kan ændre kattens navn.
-                        Løsningen bruger getCatname() til at hente navn og setCatname() til at ændre navn.</p>
+                    <p class="note-title-9"><strong>SLIDE 18 — EXERCISE: CLASS (CAT)</strong></p>
+                    <p>Cat klassen har name, color og breed properties. Constructor tager 3 parametre. getCatname()
+                        returnerer kattens navn. setCatname() ændrer kattens navn. To instanser oprettes og metoder
+                        testes med console.log.</p>
                 </li>
 
                 <li>
-                    <p class="note-title-11"><strong>SLIDE 19 — EXERCISE: CAR</strong></p>
-                    <p>Opgaven var at lave en Car klasse med make, model og year i constructor, getCarInfo() der
-                        returnerer en string, start() der sætter isRunning til true og returnerer en string, stop() der
-                        sætter isRunning til false. To instanser oprettes og alle metoder testes med console.log.</p>
+                    <p class="note-title-10"><strong>SLIDE 19 — EXERCISE: CAR</strong></p>
+                    <p>Car klassen har make, model, year, color, series og isRunning properties. getCarInfo() returnerer
+                        en string med bilens info. start() sætter isRunning til true. stop() sætter isRunning til false.
+                        To instanser oprettes og alle metoder testes.</p>
+                    <pre><code>class Car {
+    isRunning: boolean = false;
+    constructor(public make: string, public model: string, public year: number) {}
+
+    getCarInfo(): string { return `${this.make} ${this.model} ${this.year}`; }
+    start(): string { this.isRunning = true; return `${this.make} has started`; }
+    stop(): string  { this.isRunning = false; return `${this.make} has stopped`; }
+}</code></pre>
                 </li>
 
                 <li>
-                    <p class="note-title-12"><strong>SLIDE 20-21 — ARRAYS</strong></p>
-                    <p>Et array er en liste der kan indeholde flere elementer. I TypeScript angiver vi typen med []:
-                        number[] er et array af tal, string[] er et array af strings. push() tilføjer et element til
-                        slutningen. indexOf() returnerer index af et element — returnerer -1 hvis elementet ikke findes.
-                        slice(start, end) returnerer en del af arrayet som et nyt array uden at ændre det originale. Et
-                        array kan også indeholde objekter: let people = [] — people.push({ firstname: "Christian",
-                        email: "kirs@cphbusiness.dk" }) — people[0].email henter første persons email.</p>
-                    <p>Til eksamen: Hvad returnerer indexOf() hvis elementet ikke findes? -1. Hvad er forskellen på
-                        push() og slice()? push() ændrer det originale array og tilføjer et element. slice() returnerer
-                        et nyt array uden at ændre originalen.</p>
+                    <p class="note-title-11"><strong>SLIDE 20-22 — ARRAYS</strong></p>
+                    <p>Et array er en ordnet liste af elementer. I TypeScript angives typen med []: number[] er et array
+                        af tal. Vigtige metoder: push() tilføjer et element til slutningen og ændrer det originale
+                        array. indexOf() returnerer index af et element — returnerer -1 hvis ikke fundet. slice(start,
+                        end) returnerer en del af arrayet som et nyt array uden at ændre originalen. Et array kan også
+                        indeholde objekter.</p>
+                    <pre><code>let names: string[] = ["Anna", "Peter", "Maria"];
+names.push("Lars");              // tilføj element
+names.indexOf("Peter");          // returnerer 1
+names.indexOf("Lars");           // returnerer -1 hvis ikke fundet
+names.slice(0, 3);               // returnerer de første 3
+
+let people = [];
+people.push({ firstname: "Christian", email: "kirs@cphbusiness.dk" });
+console.log(people[0].email);    // henter første persons email</code></pre>
+                    <p><strong>Til eksamen:</strong> Hvad returnerer indexOf() hvis elementet ikke findes? -1. Hvad er
+                        forskellen på push() og slice()? push() ændrer det originale array. slice() returnerer et nyt
+                        array uden at ændre originalen.</p>
                 </li>
 
                 <li>
-                    <p class="note-title-13"><strong>SLIDE 22 — EXERCISE: ARRAYS</strong></p>
-                    <p>Opgaven var at oprette et array med 5 navne, bruge indexOf på et navn der findes og et der ikke
-                        findes, push et nyt navn, slice de første 3 navne og oprette 2 objekter med firstname, lastname,
-                        email og tilføje dem til et array.</p>
-                </li>
+                    <p class="note-title-12"><strong>SLIDE 23 — EXERCISE: ARRAYS & OBJECTS (STUDENT)</strong></p>
+                    <p>Student klassen har name, id og grades som et number array. addGrade() tilføjer en karakter til
+                        grades arrayet med push(). updateStudentName() opdaterer navnet. Et student objekt oprettes,
+                        grades tilføjes og navnet opdateres.</p>
+                    <pre><code>class Student {
+    grades: number[] = [];
+    constructor(public name: string, public id: number) {}
 
-                <li>
-                    <p class="note-title-14"><strong>SLIDE 23 — EXERCISE: ARRAYS & OBJECTS (STUDENT)</strong></p>
-                    <p>Opgaven var at lave en Student klasse med name, id og grades som et number array. addGrade()
-                        metoden tilføjer en karakter til grades arrayet med push(). updateStudentName() metoden
-                        opdaterer navnet. Et student objekt oprettes, grades tilføjes og navnet opdateres.</p>
+    addGrade(grade: number): void { this.grades.push(grade); }
+    updateStudentName(newName: string): void { this.name = newName; }
+}
+
+const student1 = new Student("Anna", 1);
+student1.addGrade(7);
+student1.updateStudentName("Anna Jensen");
+console.log(student1);</code></pre>
                 </li>
             </ul>
         </section>

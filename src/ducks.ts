@@ -13,7 +13,7 @@ if (logo_box && logo_img) {
   });
 
   logo_box!.addEventListener("mouseout", function () {
-    logo_img!.src = "/src/images/duck_ck.png";
+    logo_img!.src = "https://em-content.zobj.net/source/apple/391/duck_1f986.png";
   });
 }
 
@@ -170,33 +170,81 @@ if (southAmericaSelect && southAmericaList) {
   });
 }
 
+// /////////////// CUSTOM DUCK DROPDOWN  med billed ///////////////////
+document.querySelectorAll<HTMLElement>(".duck-dropdown").forEach((dropdown) => {
+    const trigger = dropdown.querySelector<HTMLButtonElement>(".duck-trigger");
+    const menu = dropdown.querySelector<HTMLUListElement>(".duck-menu");
+    const targetId = dropdown.dataset.target;
+    const targetList = targetId ? document.getElementById(targetId) : null;
+
+    if (!trigger || !menu || !targetList) return;
+
+trigger.addEventListener("click", () => {
+    console.log("trigger clicked");
+    dropdown.classList.toggle("open");
+    console.log("dropdown classes:", dropdown.classList);
+});
+    document.addEventListener("click", (e) => {
+        if (!dropdown.contains(e.target as Node)) {
+            dropdown.classList.remove("open");
+        }
+    });
+
+    menu.querySelectorAll<HTMLElement>(".duck-option").forEach((option) => {
+        option.addEventListener("click", () => {
+          console.log("option clicked:", option.dataset.value);
+            const value = option.dataset.value;
+            const avatar = option.dataset.avatar;
+            if (!value) return;
+
+            const existing = targetList.querySelector(`li[data-value="${value}"]`);
+            if (existing) {
+                existing.remove();
+            } else {
+                const li = document.createElement("li");
+                li.setAttribute("data-value", value);
+                const img = document.createElement("img");
+                img.src = avatar ?? "";
+                img.alt = value;
+                li.appendChild(img);
+                const p = document.createElement("p");
+                p.textContent = value;
+                li.appendChild(p);
+                targetList.appendChild(li);
+            }
+
+            dropdown.classList.remove("open");
+        });
+    });
+});
+
 //////////////// EXERCISE 3 – ASYNC: EXERCISE //////////////////
 //////////// KUN i DUCK.HTML //////////////////////
-// JOKE 
-const btnJoke = document.getElementById("btnJoke") as HTMLButtonElement | null;
-const jokeText = document.getElementById("jokeText") as HTMLElement | null;
+// JOKE
+const btnJoke2 = document.getElementById("btnJoke2") as HTMLButtonElement | null;
+const jokeText2 = document.getElementById("jokeText2") as HTMLElement | null;
 
-if (btnJoke && jokeText) {
-    btnJoke.addEventListener("click", async function () {
-        const url = "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist";
-        const response = await fetch(url, { method: "GET" });
+if (btnJoke2 && jokeText2) {
+  btnJoke2.addEventListener("click", async function () {
+    const url = "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist";
+    const response = await fetch(url, { method: "GET" });
 
-        if (!response.ok) {
-            jokeText.textContent = "Something went wrong";
-            return;
-        }
+    if (!response.ok) {
+      jokeText2.textContent = "Something went wrong";
+      return;
+    }
 
-        const data = await response.json();
-        console.log(data);
+    const data = await response.json();
+    console.log(data);
 
-        setTimeout(() => {
-            if (data.type === "single") {
-                jokeText.textContent = data.joke;
-            } else {
-                jokeText.textContent = data.setup + " - " + data.delivery;
-            }
-        }, 1500); // delay på Mr. Ducks jokes
-    });
+    setTimeout(() => {
+      if (data.type === "single") {
+        jokeText2.textContent = data.joke;
+      } else {
+        jokeText2.textContent = data.setup + " - " + data.delivery;
+      }
+    }, 500); // delay på Mr. Ducks jokes
+  });
 }
 
 //////////////// EXERCISE 3 – FORMS: EXERCISE //////////////////
@@ -209,36 +257,37 @@ const userNameError = document.getElementById("userNameError") as HTMLElement | 
 const userEmailError = document.getElementById("userEmailError") as HTMLElement | null;
 const userStatus = document.getElementById("userStatus") as HTMLElement | null;
 
-function validateEkEmail(email: string): boolean { // Email validation
-    return email.endsWith("@ek.dk");
+function validateEkEmail(email: string): boolean {
+  // Email validation
+  return email.endsWith("@ek.dk");
 }
 
 if (userForm && userNameInput && userEmailInput && userNameError && userEmailError && userStatus) {
-    userForm.addEventListener("submit", (e) => {
-        e.preventDefault();
+  userForm.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-        const userName = userNameInput.value.trim();
-        const userEmail = userEmailInput.value.trim();
+    const userName = userNameInput.value.trim();
+    const userEmail = userEmailInput.value.trim();
 
-        userNameError.textContent = "";
-        userEmailError.textContent = "";
-        userStatus.textContent = "";
+    userNameError.textContent = "";
+    userEmailError.textContent = "";
+    userStatus.textContent = "";
 
-        if (userName === "") {
-            userNameError.textContent = "Please write your name";
-            return;
-        }
+    if (userName === "") {
+      userNameError.textContent = "Please write your name";
+      return;
+    }
 
-        if (!validateEkEmail(userEmail)) {
-            userEmailError.textContent = "Email must end with @ek.dk";
-            return;
-        }
+    if (!validateEkEmail(userEmail)) {
+      userEmailError.textContent = "Email must end with @ek.dk";
+      return;
+    }
 
-        localStorage.setItem("duckUser", JSON.stringify({ name: userName, email: userEmail }));
+    localStorage.setItem("duckUser", JSON.stringify({ name: userName, email: userEmail }));
 
-        userStatus.textContent = "User created";
-        userStatus.style.color = "#22c55e";
+    userStatus.textContent = "User created";
+    userStatus.style.color = "#22c55e";
 
-        userForm.reset();
-    });
+    userForm.reset();
+  });
 }

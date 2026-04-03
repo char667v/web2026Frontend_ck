@@ -45,7 +45,7 @@ const products = [
         price: 59.99,
         image: "https://images.unsplash.com/photo-1463100099107-aa0980c362e6?w=600",
         isFavorite: false,
-        isNew: false,
+        isNew: false
     },
     {
         brand: "New Balance",
@@ -77,7 +77,7 @@ const products = [
         price: 94.99,
         image: "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?w=600",
         isFavorite: false,
-        isNew: true,
+        isNew: true
     },
     {
         brand: "Skechers",
@@ -85,7 +85,7 @@ const products = [
         price: 44.99,
         image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600",
         isFavorite: false,
-        isNew: false,
+        isNew: false
     },
     {
         brand: "Asics",
@@ -93,8 +93,8 @@ const products = [
         price: 84.99,
         image: "https://images.unsplash.com/photo-1562183241-b937e95585b6?w=600",
         isFavorite: false,
-        isNew: true,
-    },
+        isNew: true
+    }
 ];
 window.addEventListener("load", () => {
     products.map((product) => {
@@ -105,7 +105,7 @@ window.addEventListener("load", () => {
             card.classList.add("is-new");
         clone.querySelector(".brand").textContent = product.brand;
         clone.querySelector(".product-name").textContent = product.name;
-        clone.querySelector(".price").textContent = "£" + product.price;
+        clone.querySelector(".price").textContent = product.price + "KR.";
         clone.querySelector(".product-image").src = product.image;
         clone.querySelector(".product-image").alt = product.name;
         document.getElementById("productContainer")?.appendChild(clone);

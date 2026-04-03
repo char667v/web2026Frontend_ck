@@ -7,46 +7,48 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mr.Duck</title>
     <script src="dist/ducks.js" defer></script>
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <!-- <link rel="icon" type="image/png" href="./src/images/favicon_io-4/favicon-32x32.png"> -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="./src/images/favicon_io-4/favicon-32x32.png">
 </head>
 
 <body>
     <div class="duck-page">
         <header>
             <a id="logo_box" href="/index.html" aria-label="Home">
-                <img id="logo_img" src="/src/images/duck_ck.png" alt="Home" width="48" height="48">
+                <img id="logo_img" src="https://em-content.zobj.net/source/apple/391/duck_1f986.png" alt="Duck"
+                    width="48" height="48">
             </a>
-
             <h1>Mr. Duck family</h1>
-
-            <button id="btnJoke" type="button">Force answer</button>
-
             <a class="user-btn" href="/user.html">User</a>
         </header>
 
         <main>
+            <div class="two-col">
+                <div class="card">
+                    <form id="duckForm">
+                        <label for="message">Explain your problem to Mr. Duck <span class="bounce-arrow"
+                                aria-hidden="true">▼</span></label>
+                        <textarea id="message" name="message" placeholder="Type your problem here..."></textarea>
 
-            <div class="card">
-                <form id="duckForm">
-                    <label for="message">Explain your problem to Mr. Duck <span class="bounce-arrow"
-                            aria-hidden="true">▼</span></label>
-                    <textarea id="message" name="message" placeholder="Type your problem here..."></textarea>
+                        <div class="row">
+                            <p id="status" class="status" role="status" aria-live="polite"></p>
+                            <button class="btn1" type="submit">Send to Mr. Duck</button>
 
-                    <div class="row">
-                        <button class="btn1" type="submit">Send to Mr. Duck</button>
-                        <p id="status" class="status" role="status" aria-live="polite"></p>
-                    </div>
+                        </div>
 
-                    <div id="outbox" class="outbox">
-                        <!-- <strong>Sent message:</strong> -->
-                        <pre id="sentText"></pre>
-                    </div>
-                </form>
-            </div>
-            <div>
-                <p id="jokeText"></p>
-                <ul id="savedMessages"></ul>
+                        <div id="outbox" class="outbox">
+                            <!-- <strong>Sent message:</strong> -->
+                            <pre id="sentText"></pre>
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    <ul id="savedMessages"></ul>
+                </div>
+                <div>
+                    <button id="btnJoke2" type="button">Force joke answer</button>
+                    <p id="jokeText2"></p>
+                </div>
             </div>
 
             <section class="duck-pickers">
@@ -100,6 +102,167 @@
                     <ul id="southAmericaList"></ul>
                 </div>
 
+            </section>
+
+            <!-- Custom dropdown -->
+            <section class="duck-pickers">
+                <!-- 1) Tegneserie-ænder -->
+                <div class="picker">
+                    <label for="cartoonSelect">Tegneserie-ænder</label>
+
+                    <div class="duck-dropdown" data-target="cartoonList2">
+                        <button id="cartoonSelect" type="button" class="duck-trigger">
+                            <p>-- vælg mellem --</p>
+                        </button>
+
+                        <ul class="duck-menu">
+                            <li class="duck-option" data-value="Anders And"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Anders And</p>
+                            </li>
+                            <li class="duck-option" data-value="Rip" data-avatar="/src/images/batman_rubber_duck.png">
+                                <img src="/src/images/batman_rubber_duck.png" alt="">
+                                <p>Rip</p>
+                            </li>
+                            <li class="duck-option" data-value="Rap" data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Rap</p>
+                            </li>
+                            <li class="duck-option" data-value="Rup" data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/duck_ck.png" alt="">
+                                <p>Rup</p>
+                            </li>
+                            <li class="duck-option" data-value="Joakim von And"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/easterchicken.png" alt="">
+                                <p>Joakim von And</p>
+                            </li>
+                            <li class="duck-option" data-value="Daisy Duck"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/batman_rubber_duck.png" alt="">
+                                <p>Daisy Duck</p>
+                            </li>
+                            <li class="duck-option" data-value="Glimmer"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/duck_ck.png" alt="">
+                                <p>Glimmer</p>
+                            </li>
+                            <li class="duck-option" data-value="Nullemands-Anden"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/batman_rubber_duck.png" alt="">
+                                <p>GizmoDuck</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <ul id="cartoonList2"></ul>
+                </div>
+
+                <!-- 2) Danske andearter -->
+                <div class="picker">
+                    <label for="speciesSelect">Danske andearter</label>
+
+                    <div class="duck-dropdown" data-target="speciesList2">
+                        <button id="speciesSelect" type="button" class="duck-trigger">
+                            <p>-- vælg mellem --</p>
+                        </button>
+
+                        <ul class="duck-menu">
+                            <li class="duck-option" data-value="Gråand" data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/batman_rubber_duck.png" alt="">
+                                <p>Gråand</p>
+                            </li>
+                            <li class="duck-option" data-value="Knarand"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Knarand</p>
+                            </li>
+                            <li class="duck-option" data-value="Spidsand"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/duck_ck.png" alt="">
+                                <p>Spidsand</p>
+                            </li>
+                            <li class="duck-option" data-value="Pibeand"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Pibeand</p>
+                            </li>
+                            <li class="duck-option" data-value="Krikand"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/batman_rubber_duck.png" alt="">
+                                <p>Krikand</p>
+                            </li>
+                            <li class="duck-option" data-value="Skeand" data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/duck_ck.png" alt="">
+                                <p>Skeand</p>
+                            </li>
+                            <li class="duck-option" data-value="Ederfugl"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/duck_ck.png" alt="">
+                                <p>Ederfugl</p>
+                            </li>
+                            <li class="duck-option" data-value="Troldand"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/batman_rubber_duck.png" alt="">
+                                <p>Troldand</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <ul id="speciesList2"></ul>
+                </div>
+
+                <!-- 3) Sydamerika-ænder -->
+                <div class="picker">
+                    <label for="southAmericaSelect">Ænder fra Sydamerika</label>
+
+                    <div class="duck-dropdown" data-target="southAmericaList2">
+                        <button id="southAmericaSelect" type="button" class="duck-trigger">
+                            <p>-- vælg mellem --</p>
+                        </button>
+
+                        <ul class="duck-menu">
+                            <li class="duck-option" data-value="Brazilian Teal"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Brazilian Teal</p>
+                            </li>
+                            <li class="duck-option" data-value="Ringed Teal"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/batman_rubber_duck.png" alt="">
+                                <p>Ringed Teal</p>
+                            </li>
+                            <li class="duck-option" data-value="Chiloe Wigeon"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/duck_ck.png" alt="">
+                                <p>Chiloe Wigeon</p>
+                            </li>
+                            <li class="duck-option" data-value="Torrent Duck"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/batman_rubber_duck.png" alt="">
+                                <p>Torrent Duck</p>
+                            </li>
+                            <li class="duck-option" data-value="Rosy-billed Pochard"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Rosy-billed Pochard</p>
+                            </li>
+                            <li class="duck-option" data-value="Crested Duck"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/duck_ck.png" alt="">
+                                <p>Crested Duck</p>
+                            </li>
+                            <li class="duck-option" data-value="Silver Teal"
+                                data-avatar="/src/images/rubber_duck_right.jpg">
+                                <img src="/src/images/rubber_duck_right.jpg" alt="">
+                                <p>Silver Teal</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <ul id="southAmericaList2"></ul>
+                </div>
             </section>
         </main>
     </div>

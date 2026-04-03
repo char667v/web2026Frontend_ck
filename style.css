@@ -1,14 +1,22 @@
 body {
-    font-family: system-ui, -apple-system, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
 }
+
+/* -------- KUN for INDEX.HTML -------- */
 .body {
   margin: 80px 280px;
 }
 .line {
-    border: none;
-    border-top: 4px solid #046cf4;
-    max-width: 1260px;
-    margin: 60px 0;
+  border: none;
+  border-top: 4px solid #046cf4;
+  max-width: 1260px;
+  margin: 60px 0;
 }
 #btnJoke {
   margin: 20px 0px 0px 20px;
@@ -48,92 +56,91 @@ body {
   color: #ecebe9;
   font-weight: bolder;
 }
-
-.overskrift{
+.overskrift {
   font-size: 36px;
 }
-.note-title-1 strong  { color: #1a6ef5;}
-.note-title-2 strong  { color: #04aa6d; }  /* grøn */
-.note-title-3 strong  { color: #e63946; }  /* rød */
-.note-title-4 strong  { color: #f4a261; }  /* orange */
-.note-title-5 strong  { color: #9b5de5; }  /* lilla */
-.note-title-6 strong  { color: #f15bb5; }  /* pink */
-.note-title-7 strong  { color: #00bbf9; }  /* lyseblå */
-.note-title-8 strong  { color: #06d6a0; }  /* mint */
-.note-title-9 strong  { color: #fb5607; }  /* rødorange */
-.note-title-10 strong { color: #ffd166; }  /* gul */
-.note-title-11 strong { color: #118ab2; }  /* mørkeblå */
-.note-title-12 strong { color: #ef476f; }  /* lyserød */
-.note-title-13 strong { color: #26a96c; }  /* mørkegrøn */
-.note-title-14 strong { color: #7b2d8b; }  /* mørkelilla */
+.note-title-1 strong {
+  color: #1a6ef5;
+}
+.note-title-2 strong {
+  color: #04aa6d;
+} /* grøn */
+.note-title-3 strong {
+  color: #e63946;
+} /* rød */
+.note-title-4 strong {
+  color: #f4a261;
+} /* orange */
+.note-title-5 strong {
+  color: #9b5de5;
+} /* lilla */
+.note-title-6 strong {
+  color: #f15bb5;
+} /* pink */
+.note-title-7 strong {
+  color: #00bbf9;
+} /* lyseblå */
+.note-title-8 strong {
+  color: #06d6a0;
+} /* mint */
+.note-title-9 strong {
+  color: #fb5607;
+} /* rødorange */
+.note-title-10 strong {
+  color: #ffd166;
+} /* gul */
+.note-title-11 strong {
+  color: #118ab2;
+} /* mørkeblå */
+.note-title-12 strong {
+  color: #ef476f;
+} /* lyserød */
+.note-title-13 strong {
+  color: #26a96c;
+} /* mørkegrøn */
+.note-title-14 strong {
+  color: #7b2d8b;
+} /* mørkelilla */
 
- 
-/****************** Mr. Duck ********************/
+/* -------- DELT mellem DUCK.HTML og DUCK_TEST.HTML -------- */
+/* -------- KUN for DUCK.HTML -------- */
+.duck-page {
+  background-color: #f0f7f4; /* lys mint */
+  margin: 0;
+  color: #1e19d0; /* mørkeblå tekst */
+}
 .duck-page header {
   display: flex;
   align-items: center;
   gap: 12px;
   padding: 20px;
   padding-left: 6%;
-  background: #648484;
+  background: #f0f7f4;
+  border-bottom: 2px solid #1e19d0;
 }
 .duck-page header h1 {
   margin: 0;
+  color: #1e19d0;
+  font-weight: 800;
 }
-
-/* lav en responsiv menubar */
-/* .duck-nav {
-  /* Nav links in a horizontal row *
-  display: flex;
-  gap: 12px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.duck-nav a {
-  font-size: 16px;
-  letter-spacing: 0.2px;
-  text-decoration: none;
-  color: inherit;
-}
-.duck-nav a:hover {
-  text-decoration: underline;
-}
-.duck-page nav {
-  margin-left: auto;
-} */
-/* ************************ */
-
 .duck-page main {
-  max-width: 760px;
+  max-width: 1050px;
   margin: 28px auto;
   padding: 40px 20px;
 }
-.duck-page {
-  background-color: rgb(182, 172, 172);
-  margin: 0;
-  font-family:
-    system-ui,
-    -apple-system,
-    Segoe UI,
-    Roboto,
-    Arial,
-    sans-serif;
-}
 .duck-page .card {
-  background: #424547;
-  border: 3px solid #046cf4;
-  border-radius: 14px;
-  padding: 18px;
-  box-shadow: 0 6px 18px #8fa7a0;
+  background: #f0f7f4;
+  border: 2px solid #1e19d0;
+  /* border-radius: 4px; */
+  padding: 30px;
+  box-shadow: none;
 }
 .duck-page label {
-  /* Explain your problem to Mr. Duck */
   display: block;
   font-size: 24px;
   font-weight: 800;
   margin-bottom: 8px;
-  color: rgb(246, 246, 246);
+  color: #1e19d0;
   text-align: left;
 }
 .bounce-arrow {
@@ -151,42 +158,42 @@ body {
 }
 .duck-page textarea {
   /* Type yout problem here... */
-  width: 90%; /* @media (min-width: 390px) default/mobil*/
+  /*width: 90%; /* @media (min-width: 390px) default/mobil*/
   width: 96%; /* @media (min-width: 768px) tablet */
   min-height: 140px;
   resize: vertical;
   padding: 12px 12px;
-  border: 2px solid #648484;
-  border-radius: 12px;
+  border: 2px solid #1e19d0;
+  /* border-radius: 4px; */
   font: inherit;
   outline: none;
-  background-color: #28292b;
-  color: rgb(246, 246, 246);
+  background-color: #ffffff;
+  color: #1a1a6e;
   margin-top: 8px; /* @media (min-width: 390px) default/mobil*/
 }
 .duck-page textarea:focus {
   /* Type yout problem here...BOX */
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  border-color: #1e19d0;
+  box-shadow: 0 0 0 3px rgba(26, 26, 110, 0.1);
 }
 #sentText {
-  color: #424547; /* Tekst der gemmes vises lige under btn/skjuler teksten */
+  color: #f0f7f4; /* Tekst der gemmes vises lige under btn/skjuler teksten */
 }
 .duck-page .btn1 {
-  background-color: #04aa6d;
-  color: rgb(246, 246, 246);
-  font-weight: 600;
+  background-color: #1e19d0;
+  color: #f0f7f4;
+  font-weight: 700;
   font-size: small;
   margin-top: 12px; /* @media (min-width: 390px) default/mobil*/
-  padding: 8px;
-  border-radius: 4px;
-  border: 2px solid #04aa6d;
+  padding: 10px 16px;
+  /* border-radius: 4px; */
+  border: 2px solid #1e19d0;
+  cursor: pointer;
 }
 .duck-page .btn1:hover {
-  border: 2px solid #04aa6d;
-  border-radius: 4px;
-  color: black;
-  background-color: #04aa6d;
+  background-color: #f0f7f4;
+  color: #1e19d0;
+  border: 2px solid #1e19d0;
 }
 /* ************************ */
 .duck-pickers {
@@ -194,29 +201,38 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   align-items: start;
-  background: #424547;
-  border: 3px solid #046cf4;
-  border-radius: 14px;
+  background: #f0f7f4;
+  border: 2px solid #1e19d0;
+  /* border-radius: 4px; */
   padding: 18px;
   height: 500px;
+  margin-top: 24px;
   box-shadow: 0 6px 18px #046cf4;
 }
+.duck-pickers .picker label {
+  font-weight: 900;
+  font-size: 18px;
+  color: orange;
+  justify-self: center;
+}
 .picker {
+  position: relative;
   display: grid;
-  border: 3px solid #28292b;
-  background: #28292b;
-  border-radius: 8px;
+  border: 2px solid #1e19d0;
+  background: #ffffff;
   padding: 12px;
   height: fit-content;
-  width: 90%; /* @media (min-width: 390px) default/mobil*/
-  width: 95%; /* @media (min-width: 768px) tablet */
+  width: 90%;
+  /* width: 90%; /* @media (min-width: 390px) default/mobil*/
+  /* width: 95%; @media (min-width: 768px) tablet */
   width: 90%; /* @media (min-width: 1024px) desktop */
 }
 .picker label {
-  color: rgb(246, 246, 246);
+  color: #1e19d0;
   margin: 22px 22px 22px 0px;
   font-size: 24px; /* @media (min-width: 768px) tablet */
   font-size: 14px; /* @media (min-width: 1024px) desktop */
+  font-weight: 700;
 }
 .picker ul {
   list-style: none;
@@ -225,166 +241,189 @@ body {
 }
 .picker li {
   padding: 8px 10px;
-  border-radius: 8px;
-  margin-bottom: 8px;
+  /* border-radius: 4px; */
+  margin-bottom: 2px;
   font-size: x-small;
-  color: rgb(246, 246, 246);
-  background-color: #424547;
+  color: #1e19d0;
+  background-color: #f0f7f4;
+  border: 1px solid #1e19d0;
 }
 @media (max-width: 900px) {
   .duck-pickers {
     grid-template-columns: 1fr;
   }
 }
+.user-btn {
+  margin-left: auto;
+  text-decoration: none;
+  background: orange;
+  color: white;
+  padding: 8px 14px;
+  border: 2px solid #1e19d0;
+  font-weight: 600;
+}
+.user-btn:hover {
+  color: black;
+}
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+#btnJoke2 {
+  margin: 20px 0px 20px 0px;
+  padding: 30px;
+  border: none;
+  background-color: rgb(85, 123, 162);
+  min-width: 550px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+}
+#btnHover {
+  margin: 4px 0px 0px 20px;
+}
+#jokeText2 {
+  border: 2px solid #1e19d0;
+  border-radius: 0px;
+  padding: 16px;
+  min-height: 80px;
+  color: #1e19d0;
+  font-size: 14px;
+  margin: 0px 0px 16px 0px;
+  min-width: 500px;
+}
+#savedMessages {
+  list-style: disc;
+  padding: 16px 16px 16px 36px;
+  margin: 0;
+  border: 2px solid #1e19d0;
+  /* border-radius: 8px; */
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 480px;
+}
+#savedMessages li {
+  color: #1e19d0;
+  font-size: 14px;
+}
 
-/* -------- KUN for DUCK_TEST.HTML -------- */
-/* -------- Custom dropdown (tilføjelse) -------- */
+/* -------- KUN for CUSTOM dropdown -------- */
 .duck-dropdown {
-  position: relative;
+    position: relative;
+    display: inline-block;
 }
 
 .duck-trigger {
-  width: 100%;
-  padding: 8px 12px;
-  border-radius: 8px;
-  box-sizing: border-box;
-  cursor: pointer;
-  font: small;
-
-  border: 1px solid #cfcfcf;
-  background: #fff;
-  color: #111;
-  text-align: center;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid #cfcfcf;
+    background: #fff;
+    color: #111;
 }
 
 .duck-trigger p {
-  margin: 0;
+    margin: 0;
 }
-
-/* dropdown menu */
 .duck-menu {
-  display: none;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: calc(100% + 6px);
-  z-index: 9999;
-
-  margin: 0;
-  padding: 6px;
-  list-style: none;
-
-  border-radius: 10px;
-  background: #28292b;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  max-height: 260px;
-  overflow: auto;
+    display: none;
+    position: absolute;
+    left: 0;
+    top: calc(100% + 4px);
+    z-index: 9999;
+    background: #ffffff;
+    border: 1px solid #1a1a6e;
+    border-radius: 4px;
+    list-style: none;
+    padding: 4px 0;
+    margin: 0;
+    width: 200px;
+    max-height: 300px;
+    overflow-y: auto;
 }
 
 .duck-dropdown.open .duck-menu {
-  display: block;
+    display: block;
+    width: 98%;
+    border: 1px;
 }
 
-/* menu items (override .picker li) *
-.duck-menu .duck-option {
-  margin-bottom: 0;
-  background: transparent;
-  padding: 8px 10px;
-  border-radius: 10px;
-
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
+.duck-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
 }
 
-.duck-menu .duck-option:hover {
-  background: #424547;
+.duck-option:hover {
+    background: #f0f7f4;
 }
 
-.duck-menu .duck-option img {
-  width: 22px;
-  height: 22px;
-  border-radius: 999px;
-  object-fit: cover;
+.duck-option img {
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    object-fit: cover;
 }
 
-.duck-menu .duck-option p {
-  margin: 0;
-  font-size: x-small;
-  color: rgb(246, 246, 246);
+.duck-option p {
+    margin: 0 0 0 12px;
+    font-size: 14px;
+    color: #1a1a6e;
 }
 
-/* valgte lister: billede + tekst altid *
 #cartoonList li,
 #speciesList li,
 #southAmericaList li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 #cartoonList li img,
 #speciesList li img,
 #southAmericaList li img {
-  width: 22px;
-  height: 22px;
-  border-radius: 999px;
-  object-fit: cover;
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    object-fit: cover;
 }
 
 #cartoonList li p,
 #speciesList li p,
 #southAmericaList li p {
-  margin: 0;
+    margin: 0;
+}
+#cartoonList2 li img,
+#speciesList2 li img,
+#southAmericaList2 li img {
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    object-fit: cover;
+}
+#cartoonList2 li,
+#speciesList2 li,
+#southAmericaList2 li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+#cartoonList2 li p,
+#speciesList2 li p,
+#southAmericaList2 li p {
+    margin: 0;
+}
+.duck-dropdown {
+    position: relative;
+    display: block;
 }
 
-/* -------- KUN for USER.HTML -------- *
-.user-btn {
-  margin-left: auto;
-  text-decoration: none;
-  background: #04aa6d;
-  color: white;
-  padding: 8px 14px;
-  border-radius: 8px;
-  font-weight: 600;
+.duck-trigger {
+    width: 100%;
 }
-
-.user-btn:hover {
-  color: black;
-}
-
-.user-card {
-  max-width: 520px;
-  margin: 0 auto;
-}
-
-#userForm input {
-  width: 100%;
-  box-sizing: border-box;
-  margin-top: 8px;
-  margin-bottom: 6px;
-  padding: 12px;
-  border: 2px solid #648484;
-  border-radius: 10px;
-  background: #28292b;
-  color: rgb(246, 246, 246);
-  font: inherit;
-}
-
-#userForm input:focus {
-  outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-}
-
-.field-error {
-  min-height: 20px;
-  margin: 0 0 12px 0;
-  color: #ff6b6b;
-  font-size: 14px;
-}
-
-.input-error {
-  border-color: #ff4d4d !important;
-} */
+    

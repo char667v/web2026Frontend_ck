@@ -115,7 +115,7 @@ window.addEventListener("load", () => {
 
     (clone.querySelector(".brand") as HTMLElement).textContent = product.brand;
     (clone.querySelector(".product-name") as HTMLElement).textContent = product.name;
-    (clone.querySelector(".price") as HTMLElement).textContent = "£" + product.price;
+    (clone.querySelector(".price") as HTMLElement).textContent = product.price + "KR.";
     (clone.querySelector(".product-image") as HTMLImageElement).src = product.image;
     (clone.querySelector(".product-image") as HTMLImageElement).alt = product.name;
 

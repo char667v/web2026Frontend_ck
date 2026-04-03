@@ -10,7 +10,7 @@ if (logo_box && logo_img) {
         logo_img.src = "/src/images/easterchicken.png";
     });
     logo_box.addEventListener("mouseout", function () {
-        logo_img.src = "/src/images/duck_ck.png";
+        logo_img.src = "https://em-content.zobj.net/source/apple/391/duck_1f986.png";
     });
 }
 // // TJEK MED localStorage.getItem("messages") ELLER console.log(messages); I INSPECT -> CONCOLE
@@ -143,29 +143,74 @@ if (southAmericaSelect && southAmericaList) {
         southAmericaSelect.value = "";
     });
 }
+// /////////////// CUSTOM DUCK DROPDOWN  med billed ///////////////////
+document.querySelectorAll(".duck-dropdown").forEach((dropdown) => {
+    const trigger = dropdown.querySelector(".duck-trigger");
+    const menu = dropdown.querySelector(".duck-menu");
+    const targetId = dropdown.dataset.target;
+    const targetList = targetId ? document.getElementById(targetId) : null;
+    if (!trigger || !menu || !targetList)
+        return;
+    trigger.addEventListener("click", () => {
+        console.log("trigger clicked");
+        dropdown.classList.toggle("open");
+        console.log("dropdown classes:", dropdown.classList);
+    });
+    document.addEventListener("click", (e) => {
+        if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove("open");
+        }
+    });
+    menu.querySelectorAll(".duck-option").forEach((option) => {
+        option.addEventListener("click", () => {
+            console.log("option clicked:", option.dataset.value);
+            const value = option.dataset.value;
+            const avatar = option.dataset.avatar;
+            if (!value)
+                return;
+            const existing = targetList.querySelector(`li[data-value="${value}"]`);
+            if (existing) {
+                existing.remove();
+            }
+            else {
+                const li = document.createElement("li");
+                li.setAttribute("data-value", value);
+                const img = document.createElement("img");
+                img.src = avatar ?? "";
+                img.alt = value;
+                li.appendChild(img);
+                const p = document.createElement("p");
+                p.textContent = value;
+                li.appendChild(p);
+                targetList.appendChild(li);
+            }
+            dropdown.classList.remove("open");
+        });
+    });
+});
 //////////////// EXERCISE 3 – ASYNC: EXERCISE //////////////////
 //////////// KUN i DUCK.HTML //////////////////////
-// JOKE 
-const btnJoke = document.getElementById("btnJoke");
-const jokeText = document.getElementById("jokeText");
-if (btnJoke && jokeText) {
-    btnJoke.addEventListener("click", async function () {
+// JOKE
+const btnJoke2 = document.getElementById("btnJoke2");
+const jokeText2 = document.getElementById("jokeText2");
+if (btnJoke2 && jokeText2) {
+    btnJoke2.addEventListener("click", async function () {
         const url = "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,racist,sexist";
         const response = await fetch(url, { method: "GET" });
         if (!response.ok) {
-            jokeText.textContent = "Something went wrong";
+            jokeText2.textContent = "Something went wrong";
             return;
         }
         const data = await response.json();
         console.log(data);
         setTimeout(() => {
             if (data.type === "single") {
-                jokeText.textContent = data.joke;
+                jokeText2.textContent = data.joke;
             }
             else {
-                jokeText.textContent = data.setup + " - " + data.delivery;
+                jokeText2.textContent = data.setup + " - " + data.delivery;
             }
-        }, 1500); // delay på Mr. Ducks jokes
+        }, 500); // delay på Mr. Ducks jokes
     });
 }
 //////////////// EXERCISE 3 – FORMS: EXERCISE //////////////////
@@ -178,6 +223,7 @@ const userNameError = document.getElementById("userNameError");
 const userEmailError = document.getElementById("userEmailError");
 const userStatus = document.getElementById("userStatus");
 function validateEkEmail(email) {
+    // Email validation
     return email.endsWith("@ek.dk");
 }
 if (userForm && userNameInput && userEmailInput && userNameError && userEmailError && userStatus) {

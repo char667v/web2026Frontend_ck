@@ -20,50 +20,6 @@
     </header>
 
     <main>
-
-        <!--
-        =====================================================
-        USER PAGE — OPGAVER FRA PDF 03 OG PDF 04
-        =====================================================
-
-        PDF 03 — Forms (side 10):
-        - <form> er semantisk korrekt HTML
-        - Lytter på enter-tasten automatisk
-        - e.preventDefault() stopper siden i at reloade
-        - Custom JS validering viser fejl direkte i UI
-        - Hvert felt har en <p class="field-error"> til fejlbeskeder
-
-        PDF 04 — Authentication (side 19-22):
-        - Login sender email + password til backend via fetch POST
-        - Serveren returnerer et JWT (JSON Web Token)
-        - JWT gemmes i localStorage og sendes med i fremtidige requests
-        - Authorization: "Bearer " + token
-
-        localStorage — bruges i begge:
-        - Kan kun gemme strings — brug JSON.stringify() ved gemning
-        - Hent med JSON.parse(localStorage.getItem("duckUser"))
-        - Mr. Duck hilser brugeren ved navn når siden loader
-
-        Login findes to steder i projektet:
-        - user.html — dedikeret auth side med både signup og login formular
-        - duck.html — header har "User" knap der linker til user.html
-        - I ducks.ts er signup validering lavet (navn + @ek.dk email)
-        - Login fetch til backend mangler — kræver lærerens server (PDF 04)
-
-        Vigtige begreber til eksamen:
-        - e.preventDefault()    → stop form reload
-        - .trim()               → fjern mellemrum fra input
-        - endsWith("@ek.dk")    → custom email validering
-        - JSON.stringify/parse  → konverter objekt til string og tilbage
-        - JWT                   → token der beviser brugeren er logget ind
-        - Bearer token          → sådan sendes JWT med i fetch requests
-        =====================================================
-        -->
-
-        <!-- SIGNUP — PDF 03 side 10 -->
-        <!-- Opretter bruger med navn, email og password -->
-        <!-- Validering i ducks.ts: navn må ikke være tomt, email skal slutte på @ek.dk -->
-        <!-- Ved success: gemmes i localStorage med JSON.stringify -->
         <div class="auth-card">
             <div class="auth-icon">👩🏻‍🦰</div>
             <h2>Create Account</h2>
@@ -110,10 +66,53 @@
             </form>
             <p class="auth-footer">Not registered? <a href="/duck.html">Sign up</a></p>
         </div>
-
     </main>
 </div>
 
+
+        <!--
+        =====================================================
+        USER PAGE — OPGAVER FRA PDF 03 OG PDF 04
+        =====================================================
+
+        PDF 03 — Forms (side 10):
+        - <form> er semantisk korrekt HTML
+        - Lytter på enter-tasten automatisk
+        - e.preventDefault() stopper siden i at reloade
+        - Custom JS validering viser fejl direkte i UI
+        - Hvert felt har en <p class="field-error"> til fejlbeskeder
+
+        PDF 04 — Authentication (side 19-22):
+        - Login sender email + password til backend via fetch POST
+        - Serveren returnerer et JWT (JSON Web Token)
+        - JWT gemmes i localStorage og sendes med i fremtidige requests
+        - Authorization: "Bearer " + token
+
+        localStorage — bruges i begge:
+        - Kan kun gemme strings — brug JSON.stringify() ved gemning
+        - Hent med JSON.parse(localStorage.getItem("duckUser"))
+        - Mr. Duck hilser brugeren ved navn når siden loader
+
+        Login findes to steder i projektet:
+        - user.html — dedikeret auth side med både signup og login formular
+        - duck.html — header har "User" knap der linker til user.html
+        - I ducks.ts er signup validering lavet (navn + @ek.dk email)
+        - Login fetch til backend mangler — kræver lærerens server (PDF 04)
+
+        Vigtige begreber til eksamen:
+        - e.preventDefault()    → stop form reload
+        - .trim()               → fjern mellemrum fra input
+        - endsWith("@ek.dk")    → custom email validering
+        - JSON.stringify/parse  → konverter objekt til string og tilbage
+        - JWT                   → token der beviser brugeren er logget ind
+        - Bearer token          → sådan sendes JWT med i fetch requests
+        =====================================================
+        -->
+
+        <!-- SIGNUP — PDF 03 side 10 -->
+        <!-- Opretter bruger med navn, email og password -->
+        <!-- Validering i ducks.ts: navn må ikke være tomt, email skal slutte på @ek.dk -->
+        <!-- Ved success: gemmes i localStorage med JSON.stringify -->
 <footer>
     <p>&copy; 2026 Charlotte Koudal Webdesign EK</p>
 </footer>
