@@ -102,7 +102,6 @@ body {
   color: #7b2d8b;
 } /* mørkelilla */
 
-/* -------- DELT mellem DUCK.HTML og DUCK_TEST.HTML -------- */
 /* -------- KUN for DUCK.HTML -------- */
 .duck-page {
   background-color: #f0f7f4; /* lys mint */
@@ -276,7 +275,7 @@ body {
   padding: 30px;
   border: none;
   background-color: rgb(85, 123, 162);
-  min-width: 550px;
+  min-width: 100%;
   color: white;
   font-size: 18px;
   font-weight: 600;
@@ -293,6 +292,8 @@ body {
   font-size: 14px;
   margin: 0px 0px 16px 0px;
   min-width: 500px;
+  width: 100%;
+  box-sizing: border-box;
 }
 #savedMessages {
   list-style: disc;
@@ -309,121 +310,152 @@ body {
   color: #1e19d0;
   font-size: 14px;
 }
-
+@media (max-width: 768px) {
+    .two-col {
+        grid-template-columns: 1fr;
+    }
+    .duck-pickers {
+        height: auto;
+    }
+    .duck-page main {
+        padding: 16px;
+        margin: 0;
+    }
+    .duck-page .card {
+        padding: 16px;
+    }
+    .duck-page textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    #btnJoke2 {
+        width: 100%;
+        min-width: unset;
+        padding: 16px;
+    }
+    #jokeText2 {
+        width: 100%;
+        min-width: unset;
+        box-sizing: border-box;
+    }
+    #savedMessages {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
 /* -------- KUN for CUSTOM dropdown -------- */
 .duck-dropdown {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .duck-trigger {
-    padding: 8px 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    border: 1px solid #cfcfcf;
-    background: #fff;
-    color: #111;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid #cfcfcf;
+  background: #fff;
+  color: #111;
 }
 
 .duck-trigger p {
-    margin: 0;
+  margin: 0;
 }
 .duck-menu {
-    display: none;
-    position: absolute;
-    left: 0;
-    top: calc(100% + 4px);
-    z-index: 9999;
-    background: #ffffff;
-    border: 1px solid #1a1a6e;
-    border-radius: 4px;
-    list-style: none;
-    padding: 4px 0;
-    margin: 0;
-    width: 200px;
-    max-height: 300px;
-    overflow-y: auto;
+  display: none;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 4px);
+  z-index: 9999;
+  background: #ffffff;
+  border: 1px solid #1a1a6e;
+  border-radius: 4px;
+  list-style: none;
+  padding: 4px 0;
+  margin: 0;
+  width: 200px;
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 .duck-dropdown.open .duck-menu {
-    display: block;
-    width: 98%;
-    border: 1px;
+  display: block;
+  width: 98%;
+  border: 1px;
 }
 
 .duck-option {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 12px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
 }
 
 .duck-option:hover {
-    background: #f0f7f4;
+  background: #f0f7f4;
 }
 
 .duck-option img {
-    width: 22px;
-    height: 22px;
-    border-radius: 999px;
-    object-fit: cover;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  object-fit: cover;
 }
 
 .duck-option p {
-    margin: 0 0 0 12px;
-    font-size: 14px;
-    color: #1a1a6e;
+  margin: 0 0 0 12px;
+  font-size: 14px;
+  color: #1a1a6e;
 }
 
 #cartoonList li,
 #speciesList li,
 #southAmericaList li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 #cartoonList li img,
 #speciesList li img,
 #southAmericaList li img {
-    width: 22px;
-    height: 22px;
-    border-radius: 999px;
-    object-fit: cover;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  object-fit: cover;
 }
 
 #cartoonList li p,
 #speciesList li p,
 #southAmericaList li p {
-    margin: 0;
+  margin: 0;
 }
 #cartoonList2 li img,
 #speciesList2 li img,
 #southAmericaList2 li img {
-    width: 22px;
-    height: 22px;
-    border-radius: 999px;
-    object-fit: cover;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  object-fit: cover;
 }
 #cartoonList2 li,
 #speciesList2 li,
 #southAmericaList2 li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 #cartoonList2 li p,
 #speciesList2 li p,
 #southAmericaList2 li p {
-    margin: 0;
+  margin: 0;
 }
 .duck-dropdown {
-    position: relative;
-    display: block;
+  position: relative;
+  display: block;
 }
 
 .duck-trigger {
-    width: 100%;
+  width: 100%;
 }
-    
